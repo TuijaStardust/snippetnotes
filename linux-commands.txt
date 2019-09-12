@@ -1,4 +1,4 @@
-# Written by Tuija P. / WSL:Debian (Computer from School)  
+# Written by Tuija P. / WSL:Debian (PC from School)  
 
 #Some of the often used (my favorite) command line commands... 
 ----
@@ -11,7 +11,7 @@ sudo apt-get update && sudo apt-get upgrade
 sudo chown -R www-data:www-data html 
 # *chown = change owner*
 
-LIBERATING ALL RIGHTS TO A FOLDER
+LIBERATING ALL RIGHTS TO A FOLDER (!! NOT RECOMMENDED!!)
 chmod -R 777 add/here/path/to/the/[foldername]
 
 ----
@@ -40,6 +40,6 @@ sudo service mysql restart
 
 ----
 
-# ACCESS TO WINDOWS SYSTEM FILES
+# ACCESS PATH TO WINDOWS SYSTEM FILES
 # *You can modify windows files from Debian but not Debian files from Windows* 
-/mnt/c/users/[s1900564]/desktop 
+/mnt/c/users/[username]/desktop 
