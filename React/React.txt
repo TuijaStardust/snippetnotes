@@ -1,0 +1,62 @@
+Written by Tuija P. / WSL:Debian 
+
+Classroom notes about React @Business College Helsinki / September-October 2019
+
+----------------------------------
+# If you didn't run this command yet today, do it now!
+sudo apt-get update && sudo apt-get upgrade
+
+# Creating a React project 
+npx create-react-app [nameoftheapp]
+
+---
+Commands: 
+
+npm start
+# Starts the development server.
+
+npm run build
+# Bundles the app into static files for production.
+
+npm test
+# Starts the test runner.
+
+npm run eject
+# Removes this tool and copies build dependencies, configuration files
+  and scripts into the app directory. If you do this, you can’t go back!
+---
+
+# Go to app directory
+cd [nameoftheapp]
+
+# Start the localhost live-server (and open the browser "inspector" (console))
+npm start
+
+# >> Open the project directory in your favorite editor.
+
+----------------------------------
+
+# Task 1.) Clean up the files and directories.
+
+# Open file: public > index.html 
+# - Rename the title (make it your own!)
+# - Remove unnessessary comments
+
+# Remove files: src > logo.svg && serviceWorker.js 
+
+# Open file src > index.js  
+# - Remove line 5: import * as serviceWorker from './serviceWorker';
+# - Remove comments (lines 8-10) and line 11; serviceWorker.unregister();
+
+# Open file src > App.js 
+# - Remove line 2: import logo from './logo.svg';
+# - Remove everything between <div> </div> tags and add a headline inside the tags
+    <h1>Hello World!</h1>
+#   (add placeholder to make sure the page renders without errors.)
+
+# Open file src > App.css 
+# - Remove all css rules (Start from the scratch!)
+
+----------------------------------
+
+
