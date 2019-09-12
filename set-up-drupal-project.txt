@@ -1,0 +1,306 @@
+# Written by Tuija P. / WSL:Debian (PC from school...)
+# Version 1. - 2019-09-12
+
+# Instructions for setting up a Drupal project  
+# Instructions mainly from "Drupal summercamp -19" by Roni Kantis & Petri Bezemer (Druid.fi) @Business College Helsinki
+
+----
+# SETTING UP THE SYSTEM (*first time only*)
+
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install git
+sudo apt-get install composer
+sudo apt-get install apache2
+sudo apt-get install php-xml
+sudo apt-get install php-gd
+sudo apt-get install php-mbstring
+sudo apt-get install php-curl
+sudo apt-get install mariadb-server
+sudo apt-get install php-mysql
+sudo apt-get install libapache2-mod-php
+sudo apt-get install curl
+sudo apt-get install -y nodejs
+
+---- DATABASE
+
+# CREATE A DATABASE FOR THE PROJECT
+sudo mysql
+
+create database [databasename];
+
+# TO MAKE SURE THE DATABASE IS CREATED 
+show database;
+
+>> EXIT
+
+---- INSTALLING DRUPAL
+
+# CREATING NEW DRUPAL PROJECT
+sudo composer create-project drupal/drupal html --stability stable
+
+# INSTALL DRUPAL WITH BROWSWER 
+# *For installation you need to know the name of the database*
+
+---- CONNECT WITH GIT 
+
+# RENAME example.gitignore TO .gitignore
+mv example.gitignore .gitignore 
+
+# REMOVE OR COMMENT OUT LINES FROM .gitignore 
+sudo nano .gitignore 
+
+# >> COMMENT OUT
+sites/*/files
+
+# >> *SHOULD LOOK LIKE THIS* >>
+
+--
+# Ignore configuration files that may contain sensitive information.
+sites//settings.php
+sites//services.yml
+# Ignore paths that contain user-generated content.
+#sites/*/files
+sites/*/files/css
+sites/*/files/twig
+sites/*/files/php
+sites/*/files/js
+sites/*/private
+--
+
+# >> SAVE AND EXIT 
+
+# INITIALIZE LOCAL GIT REPOSITORY
+git init 
+
+# CREATE NEW EMPTY PROJECT REPOSITORY IN GITHUB AND CONNECT IT WITH THE LOCAL REPOSITORY
+# *GitHub gives you instructions how to do that*
+
+# ADD THE PROJECT FILES TO GIT
+git add .
+
+# COMMIT PROJECT FILES 
+git commit -am"Initial commit"
+
+# PUSH PROJECT FILES TO GIT 
+git push origin master 
+
+---- CREATING MULTIPLE DRUPAL SITES TO LOCALHOST (sites = projects)
+
+# 1. Create Database 
+# 2. Create new installation of Drupal 
+# 3. Add new virtual host block to apache configuration 
+# 4. Add new address to hosts file
+
+# CONFIGURE VIRTUAL HOST FILE:  /etc/apache2/sites-available
+sudo nano 000-default.conf 
+
+# --> ADD NEW VIRTUAL HOST >>
+
+--
+<VirtualHost *:80>
+       ServerName newsite.test
+       ServerAdmin webmaster@localhost 
+       DocumentRoot /var/www/html/drupalproject
+       ErrorLog ${APACHE_LOG_DIR}/error.log
+       CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+--
+
+# ServerName = domain *newsite.test*
+# DocumentRoot = Path to Drupal project directory
+
+# --> SAVE CHANGES >>
+
+# CONFIGURE WINDOWS HOSTS FILE: C:\Windows\System32\drivers\etc
+Format is [ip address] [domain] 
+
+---- DRUSH
+
+# DOWNLOAD DRUSH:
+composer require drush/drush
+
+# CHECK THAT IT'S WORKING
+vendor/bin/drush
+
+# DOWNLOAD DRUSH LAUNCHER
+wget -O drush.phar https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar
+
+# MAKE IT EXECUTABLE
+chmod +x ./drush.phar
+
+# PUT IT IN YOUR PATH
+sudo mv drush.phar /usr/local/bin/drush
+
+# VERIFY THAT IT'S WORKING
+drush
+
+# !!!! CLEAR CACHE *Whenever somethig is not working* !!!!
+drush cr
+
+---- PHP SETTINGS
+
+# MAKE SURE YOU HAVE ENOUGH CAPACITY/MEMORY IN PHP
+
+sudo nano /etc/php/7.0/apache2/php.ini
+
+# --> FIND LINES:
+
+post_max_size = 24M
+*Change to 24M*
+
+memory_limit = 1024M
+*Change to 1024M*
+
+# --> SAVE CHANGES
+
+# RESTART APACHE 
+sudo service apache2 restart 
+
+---- PERMISSIONS
+
+# CHANGE DRUPAL-FOLDER PERMISSION TO www-data AND .git FOLDER PERMISSIONS TO YOUR USER
+
+sudo chown -R www-data:www-data [project folder]
+sudo chown -R [systemuser]:[systemuser] .git
+
+# CHANGING ALL RIGHTS TO A FOLDER: (*not recommended, avoid using this if possible*)
+chmod -R 777 /var/www/html/DRUPALFOLDER/themes
+
+---- FILE EDITS (settings.php) 
+
+# EDIT sites/default/settings.php
+# --> CHANGE THE LAST LINE TO 
+$config_directories['sync'] = 'sites/default/files/config/sync';
+
+# CREATE DIRECTORIES:
+sites/default/config
+sites/default/config/sync
+
+---- EXPORTING CONFIGURATION AND DATABASE 
+
+# EXPORT CONFIGURATION 
+drush cex
+
+# EXPORT DATABASE 
+drush sql:dump > database.sql 
+
+# >> add to git 
+
+---- IMPORTING CONFIGURATION AND DATABASE 
+
+# IMPORT DATABASE FROM DUMP 
+drush sql:cli < database.sql
+
+# IMPORT CONFIGURATION
+drush cim
+
+---- CLONING EXISTING DRUPAL PROJECT
+
+# CLONE A DRUPAL PROJECT REPOSITORY FROM GITHUB (*first time only*)
+git clone [url to repository]
+
+# RUN 
+composer install
+# (sudo if needed) on Drupal root directory
+
+# INSTALL DRUPAL IN THE BROWSER 
+
+# INSTALL DRUSH IF NEEDED (line 116 >> )
+
+# IMPORT THE DATABASE FROM DUMP (line 191)
+
+# REPEAT THE CHANGE TO Settings.php (line 168 >> )
+
+# IMPORT CONFIGURATION (line 194)
+
+# CLEAR CACHES (line 137)
+drush cr 
+
+---- MODULE INSTALLATION
+
+# DOWNLOAD MODULES AND THEMES WITH COMPOSER 
+# *When you download with composer to use the name you see 
+# in the url when visiting the page in drupal.org*
+composer/require drupal/[module or theme]
+
+# INSTALL MODULES 
+drush en [module]
+
+# CLEAR CACHE *Whenever somethig is not working*
+drush cr
+
+---- THEMING
+
+# HOW TO ADD CSS TO ADMIN THEME *check the first answer*
+# https://drupal.stackexchange.com/questions/202639/how-do-i-override-the-admin-theme-in-my-own-theme
+
+# CREATING SUBTHEMES
+# https://www.drupal.org/docs/8/theming-drupal-8/creating-a-drupal-8-sub-theme-or-sub-theme-of-sub-theme
+
+# About SASS (css)
+# https://sass-lang.com/guide
+
+# About Gulp
+# https://www.freecodecamp.org/news/how-to-set-up-gulp-sass-using-the-command-line-if-youre-a-beginner-17729f53249/
+
+# JavaScript and Drupal 
+# https://www.drupal.org/docs/8/api/javascript-api/javascript-api-overview 
+
+---- DEVELOPMENT WORKFLOW
+
+# WHEN STARTING NEW FEATURE:
+# 1. Checkout MASTER branch:
+git checkout master
+
+# 2. Make sure it's up to date
+git pull origin master
+
+# 3. Create a new branch (it will branch from master)
+git checkout -b [my_awesome_branch]
+
+#4. Import configuration changes that came from master (if any)
+drush cim
+
+# WHEN YOU ARE DONE WITH THE FEATURE:
+# 1. Make sure you are up to date with master
+git pull origin master
+
+# 2. Export your current configuration
+drush cex
+
+# 3. Add files and commit changes
+git add [path/to/new/files] 
+# (check changed files with "git status")
+git commit -am"some commit message that tells what this commit does"
+
+# 4. Merge master to your branch to make see if you branch has conflicts with master
+git pull origin master
+
+# 5. Fix conflicts (if any)
+# - edit conflicting files so they are good
+git add [conflicting file]
+git commit -am"Fixed merge conflicts"
+ 
+# 6. Import changes if some came from master
+drush cim
+
+# 7. Make sure the site still works
+ 
+# 8. Push your branch to github
+git push origin [my_awesome_branch]
+
+# 7. Go to git hub and make a pull request from your branch to master
+
+# 8. Ask your friend to READ your pull request (changed files tab) and press merge button
+
+---- 
+# GULP & SASS / ADVANCED THEMING
+
+composer require vlucas/phpdotenv
+composer require drupal/console:~1.0 --prefer-dist --optimize-autoloader
+composer require vlucas/phpdotenv
+composer require drupal/devel
+composer require drupal/search_kint
+echo 'alias drupal="/home/username/public_html/drupal_dir/vendor/bin/drupal"' >> ~/.bashrc
+
+source ~/.bashrc

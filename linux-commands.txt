@@ -1,0 +1,42 @@
+# Written by Tuija P. / WSL:Debian (Computer from School)  
+
+#Some of the often used (my favorite) command line commands... 
+----
+
+# RUN THIS LINE OFTEN! Daily even? (*Updates and upgrades the system*)
+sudo apt-get update && sudo apt-get upgrade
+
+# COMMAND FOR SETTING/CHANGING THE RIGHTS TO USE SPECIFIC FOLDER/FILE 
+# -->   [www-data = "user" who gets the rights]
+sudo chown -R www-data:www-data html 
+# *chown = change owner*
+
+LIBERATING ALL RIGHTS TO A FOLDER
+chmod -R 777 add/here/path/to/the/[foldername]
+
+----
+# CREATE DIRECTORY/FOLDER
+mkdir [directoryname]
+
+# MOVE FOLDER 
+mv [foldername] [directoryWhereToMove]
+
+# RENAME FOLDER
+mv [foldername] [newfoldername]
+
+----
+# APACHE COMMANDS *Restart apache if something's not working!* 
+sudo service apache2 start
+sudo service apache2 stop
+sudo service apache2 restart
+
+# RUNNING mySQL (MariaDB)
+sudo service mysql start
+sudo service mysql stop
+sudo service mysql restart
+
+----
+
+# ACCESS TO WINDOWS SYSTEM FILES
+# *You can modify windows files from Debian but not Debian files from Windows* 
+/mnt/c/users/[s1900564]/desktop 

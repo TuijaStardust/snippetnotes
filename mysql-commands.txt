@@ -1,0 +1,23 @@
+# Written by Tuija P.
+
+# Building mySQL databases using command line 
+----
+# START mySQL
+sudo mysql
+
+# CREATE DATABASE 
+create database [databasename];
+
+# SHOW DATABASES 
+show database;
+
+
+
+# Create new user 
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+
+# Setting privileges to use database
+GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+
+#EXIT 
+exit 

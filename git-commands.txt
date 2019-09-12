@@ -1,0 +1,77 @@
+# Written by Tuija P.
+
+# Instructions mainly from the "Drupal summercamp" by Roni Kantis & Petri Bezemer @Business College Helsinki
+
+(Tutorial: https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners )
+
+----
+
+# INITIALIZING LOCAL GIT 
+git init 
+
+# CLONING GIT REPOSITORY (First time only)
+git clone [paste here the address from github]
+
+# ADDING NEW FILE:
+git add [filename or . for all changes]
+
+# COMMITING CHANGES
+git commit -am"some message"
+
+# PUSH ALL COMMITS TO GITHUB 
+git push origin [branch name]
+
+# PULLING
+git pull origin [branch name]
+
+# CREATING NEW BRANCH
+git checkout -b [branch name]
+
+# CHECKING OUT EXISTING BRANCH
+git checkout [branch name]
+
+# *if you cannot find it, do "git pull" and it should fetch new branches*
+git pull origin [branch name]
+
+# CHECKING BRANCH STATUS
+git status
+
+----
+
+# MESSED UP SOME FILE?
+# - Get a fresh copy from repo:
+git checkout [filename]
+
+# - Throw all your uncommited changes to garbage bin 
+git stash
+
+#  - OOPS! Get your stashed stuff back 
+git stash pop
+
+# REMOVE FILE FROM REPOSITORY BUT NOT FROM YOUR COMPUTER
+git rm -r --cached [path/to/file/or/dir]
+
+# SEE WHAT CHANGES YOU HAVE DONE BUT NOT COMMITED
+git diff
+
+# SEE LIST OF OLD COMMITS
+git log
+
+----
+
+# Generating SSH key: 
+
+# GENERATE NEW KEY
+ssh-keygen -t rsa -b 4096 -C "your@email.com
+
+# PRINT THE KEY
+cat < ~/.ssh/id_rsa.pub
+
+# Copy and paste the key to github (https://github.com/settings/keys)
+
+# VERIFY IT WORKS
+ssh -T git@github.com
+
+# If it says
+>> Hi [user]! You've successfully authenticated, but GitHub does not provide shell access.>>
+# all is good
