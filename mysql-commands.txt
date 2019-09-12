@@ -1,11 +1,13 @@
-# Written by Tuija P. / 2019-09-12
-
 # - Building mySQL databases using command line -
 
+# Written by Tuija P. / 2019-09-12
+
 # MariaDB Documentation: https://mariadb.com
+
+# !! Actual commands are missing the # sign in the beginning !!
 --------
 
-# RUN MySQL
+# RUN MySQL in Debian
 sudo service mysql start
 sudo service mysql stop
 sudo service mysql restart
@@ -13,7 +15,7 @@ sudo service mysql restart
 ----
 # !! Always add ; to end command inside MariaDB!!
 
-# START mySQL
+# START mySQL in Debian
 sudo mysql
 
 # SHOW DATABASES 
@@ -111,11 +113,12 @@ MariaDB [testbase]> SELECT * FROM testtable WHERE lastname = 'Mouse';
 +----+-----------+----------+------------+--------+
 1 row in set (0.00 sec)
 --
- 
+
+# % => can be replaced with anything 
 # !! Operators || (or) and && (and) can be used when filtering data. !!
 MariaDB [databasename] > SELECT * FROM [tablename] WHERE lastname = 'Mouse' && reward = 'Gold';
 
-# EXIT MySQL (MariaDB)
+# EXIT MySQL (MariaDB) back to Debian
 EXIT
 
 ---- DEFINE USER AND PRIVILEGES 
