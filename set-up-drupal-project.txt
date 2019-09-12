@@ -1,7 +1,8 @@
 # Written by Tuija P. / WSL:Debian (PC from school...)
 # Version 1. - 2019-09-12
 
-# Instructions for setting up a Drupal project  
+# - Guide for setting up a Drupal project -
+
 # Instructions mainly from "Drupal summercamp -19" by Roni Kantis & Petri Bezemer (Druid.fi) @Business College Helsinki
 
 ----
@@ -205,15 +206,15 @@ composer install
 
 # INSTALL DRUPAL IN THE BROWSER 
 
-# INSTALL DRUSH IF NEEDED (line 116 >> )
+# INSTALL DRUSH IF NEEDED (line 118 >> )
 
-# IMPORT THE DATABASE FROM DUMP (line 191)
+# IMPORT THE DATABASE FROM DUMP (line 193)
 
-# REPEAT THE CHANGE TO Settings.php (line 168 >> )
+# REPEAT THE CHANGE TO Settings.php (line 170 >> )
 
-# IMPORT CONFIGURATION (line 194)
+# IMPORT CONFIGURATION (line 196)
 
-# CLEAR CACHES (line 137)
+# CLEAR CACHES (line 139)
 drush cr 
 
 ---- MODULE INSTALLATION
