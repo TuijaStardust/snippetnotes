@@ -24,6 +24,9 @@ mv [foldername] [directoryWhereToMove]
 # RENAME FOLDER
 mv [foldername] [newfoldername]
 
+# REMOVE FOLDER
+rm -rf [foldername]
+
 ----
 # APACHE COMMANDS *Restart apache if something's not working!* 
 sudo service apache2 start
