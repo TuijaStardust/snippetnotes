@@ -4,7 +4,7 @@
 
 # MariaDB Documentation: https://mariadb.com
 
-# !! Actual commands are missing the # sign in the beginning !!
+# !! Actual usable commands don't start with the # sign in the beginning !!
 --------
 
 # RUN MySQL in Debian
@@ -134,5 +134,10 @@ CREATE USER '[newuser]'@'localhost' IDENTIFIED BY '[password]';
 
 # GRANT ALL PRIVILEGES TO USE DATABASE
 GRANT ALL PRIVILEGES ON * . * TO '[newuser]'@'localhost';
+
+# LIST USERS AND PASSWORDS 
+SELECT user, password FROM mysql.user
+
+
 
  

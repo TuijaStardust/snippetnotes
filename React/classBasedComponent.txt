@@ -1,0 +1,18 @@
+import React, {Component} from 'react';
+import './[Classname].css'; // <-- Create a css file with the component name
+
+class [Classname] extends Component { // <-- Class name = Component name
+    state= {
+
+    }
+
+    render() {
+        return (
+            <div> // Always needs the base container
+                <div></div>
+            </div>
+        )
+    }
+}
+
+export default [Classname]; 

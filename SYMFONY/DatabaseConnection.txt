@@ -1,0 +1,40 @@
+# Connecting Symfony project and database / 16.9.2019
+
+# Lecture by Arto Haapanen
+# Notes by Tuija P.
+
+# Path : .../Symfonyproject
+
+--- INSTALLATIONS
+
+# Run commands (Installation per project)
+composer require symfony/orm-pack 
+composer require --dev symfony/maker-bundle 
+
+# Commit changes to git 
+
+--- CREATE USER FOR DATABASE
+
+# --> Enter MariaDB
+sudo mysql
+
+# create new user
+CREATE USER '[newuser]'@'localhost' IDENTIFIED BY '[password]';
+
+# Grant all privileges
+GRANT ALL PRIVILEGES ON * . * TO '[newuser]'@'localhost';
+
+# --> Exit MariaDB
+
+--- CREATE DATABASE AND CONNECT IT TO THE PROJECT
+
+# Find .env file --> Replace line 27 (add connection from localhost to database)
+DATABASE_URL=mysql://[username]:[password]@127.0.0.1:3306/[databasename]
+# save and exit
+
+# Create database (Debian)
+php bin/console doctrine:database:create
+
+# If you wish to make sure the database was created succesfully, 
+# go to MariaDB --> Show databases;
+ 

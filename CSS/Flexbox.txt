@@ -1,0 +1,123 @@
+### notes by Tuija P. / 2019-09-17 ###
+-------------
+
+CSS FLEXBOX     
+-------------
+
+<div class="flex-container"></div>
+
+## PARENT ELEMENT
+
+.flex-container {
+    display: flex;
+    
+}
+
+# Properties:
+flex-direction: column          # stacks items vertically (top to bottom)
+                column-reverse  # stacks items vertically from bottom to top
+                row             # stacks items horizontally (left to right)
+                row-reverse     # horizontally from right to left
+
+flex-wrap:      wrap            # (Responsive)
+                nowrap          # no wrapping (DEFAULT)
+                wrap-reverse    # Wraps in reverse order
+
+flex-flow       row wrap        # flex direction + flex wrap
+
+justify-content center          # aligns items at the center of the container
+                flex-start      # aligns at the beginnig of the container (DEFAULT)
+                flex-end        # aligns at the end of the container
+                space-around    # displays items whith space before, between and after
+                space-between   # displays space between items
+
+align-items     center          # in the middle of the container
+                flex-start      # top of the container
+                flex-end        # bottom of container
+                stretch         # fill the container (DEFAULT)
+                baseline        # aligns as the baseline align
+
+align content   space-between   # displays flex lines with equal space between
+                space around    # space before, between and after
+                stretch         # take up the remaining space (DEFAULT)
+                center          # display flex lines in the middle of the container
+                flex-start      # at the start of container
+                flex-end        # end of the container
+
+
+#PERFECT CENTERING
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+## CHILD ELEMENTS
+
+The direct child elements of a flex container
+ automatically becomes flexible (flex) items.
+
+ +---------------------------------------------------+
+ |  +---------+ +---------+ +---------+ +---------+  |
+ |  | Flex    | | Flex    | | Flex    | | Flex    |  |
+ |  | Item 1  | | Item 2  | | Item 3  | | Item 4  |  |
+ |  |         | |         | |         | |         |  |
+ |  +---------+ +---------+ +---------+ +---------+  |
+ +---------------------------------------------------+
+
+# Flex item properties:
+
+order           # changes the order of flex items
+
+/*
+.item-1 {
+    order: 3;
+}
+
+.item-2 {
+    order: 4;
+}
+*/
+
+flex-grow       # Responsivity -- specifies how much a flex item will grow relative to 
+                  rest of the flex items. (DEFAULT VALUE: 0)
+/*
+.item-2 {
+    flex-grow: 1;
+}
+*/
+
+flex-shrink     # Responsivity -- specifies how much a flex item will shrink relative to 
+                  rest of flex items. (DEFAULT VALUE: 1)
+/*
+.item-3 {
+    flex-shrink: 0;
+}
+*/
+
+flex-basis      # specifies the initial lenght of a flex item
+
+/*
+.item-4 {
+    flex-basis: 200px;
+}
+*/
+
+flex            # Combines flex-grow + flex-shrink + flex-basis
+
+/*
+.item-1 {
+    flex: 0 0 200px;    # [0 (not growable) 0 (not shrinkable) 200px initial lenght]
+}
+*/
+
+align-self      center
+                flex-start
+                flex-end  
+
+# Specifies the alignment for the selected item inside 
+  the flex container
+# Overrides the default alignment set by the flex container align-items property
+
+                     
