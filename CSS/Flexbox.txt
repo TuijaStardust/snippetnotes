@@ -108,7 +108,7 @@ flex            # Combines flex-grow + flex-shrink + flex-basis
 
 /*
 .item-1 {
-    flex: 0 0 200px;    # [0 (not growable) 0 (not shrinkable) 200px initial lenght]
+    flex: 0 0 200px;    // [0 (not growable) 0 (not shrinkable) 200px initial lenght]
 }
 */
 
