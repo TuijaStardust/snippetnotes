@@ -1,0 +1,22 @@
+Written by Tuija P. / 2019-09-26
+
+Listing of useful modules and additions to clean Drupal installation
+
+# If something is not working:
+drush cr 
+sudo service apache2 restart
+----
+# Drush
+composer require drush/drush
+
+# complete instructions for installation in file "set-up-drupal-project.txt 
+
+----
+# Admin Toolbars
+composer require drupal/admin_toolbar 
+drush en admin_toolbar
+
+composer require drupal/admin_toolbar_tools
+drush en admin_toolbar_tools 
+----
+

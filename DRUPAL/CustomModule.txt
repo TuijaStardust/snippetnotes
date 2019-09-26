@@ -1,0 +1,105 @@
+Notes by Tuija P. / 2019-09-26
+
+Lecture notes @Business College Helsinki
+Lecturer: Arto Haapanen
+
+Creating a small Custom Module on Drupal 8
+******************************************
+
+# in .yml files insert (tab) = 2 x space
+# file doesn't work if spacing isn't correct
+
+---- CREATE FOLDERS AND FILES
+
+# Path: /[drupalProject]/modules
+mkdir custom 
+
+cd custom 
+mkdir [modulename]
+
+cd [modulename]
+mkdir src 
+touch [modulename].module           // Helptext file
+
+cd src 
+touch [modulename].info.yml         // "Initializing" file (The one file module always must have)
+touch [modulename].links.menu.yml   
+touch [modulename].routing.yml      
+
+
+---- SETTING UP INFO.YML FILE
+
+name: [modulename] module 
+description: 'Prints text to browser etc. (The purpose of the module)'
+package: Custom
+type: module 
+core: 8.x 
+
+
+---- SETTING UP ROUTING.YML FILE 
+
+[modulename].content:
+  path:'/[functionname]'         // name of the function in [ModuleName]Controller.php file
+  defaults:
+    __controller: Drupal\[modulename]\Controller\[ModuleName]Controller::[functionname]   // NameOfController::[function-name] (in [ModuleName]Controller.php file)
+  reuirements:
+    __permission: 'access content'
+
+
+---- SETTING UP LINKS.MENU.YML FILE
+
+[modulename].newpage:
+  title: "Awesome!"
+  description: "Description of the modules basic function"
+  route_name: [modulename].content      // Refers to the title in routing.yml file
+  weight: 10
+  menu_name: main
+
+
+---- SETTING UP [MODULENAME]CONTROLLER.PHP FILE
+
+<?php 
+/**
+* @file
+* Containing \Drupal\[modulename]\Controller\[ModuleName]Controller 
+*/
+
+namespace Drupal\[modulename]\Controller;
+
+use Drupal\Core\Controller\ControllerBase;
+
+class [ModuleName]Controller extends ControllerBase {
+    public function awesome() {
+        $makerName = 'Tuija Stardust';
+        $text = '<h1>Awesome!</h1><p>This is my first module!</p>';
+        return array(
+            '#title' => 'Awesome',
+            '#markup' => $text . '(made by: ' . $makername . '&copy;)'
+        );
+    }
+}
+
+?>
+
+
+---- SETTING UP [MODULENAME].MODULE FILE
+
+# Creates the help texts to module "introduction"
+
+<?php
+/**
+* hook_help() implementation
+*/
+
+function [modulename]_help($route_name, \Drupal\Core\Routing\RouteMatcInterface $route_match) {
+    switch($route_name){
+        case 'help.page.[modulename]':
+        $output = '';
+        $output .= '<h3>Info about module</h3>';
+        $output .= '<p>This is an awesome module!</p>';
+        return $output;
+        default;
+    }
+}
+
+// Don't add closing tag for php
