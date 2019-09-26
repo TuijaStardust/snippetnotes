@@ -1,0 +1,79 @@
+# Notes by Tuija P. / 2019-09-17
+# Topic of the day: CREATING A FUNCTION BASED COMPONENT
+# Trying also to point it out how all the files are linked together... 
+
+----------------------------------------------------------------------
+
+--- CREATE COMPONENT FOLDER AND FILES
+
+# Create [ComponentName] folder under src folder
+# Create [ComponentName].js and [ComponentName].css files inside [ComponentName] folder
+# When importing, default file tpe is .js --> .js can be left out
+
+*****************************************
+Dog.js file                         # [ComponentName].js
+---------------------
+
+import React from 'react';          # <-- import What from 'where' (Bring in the libraries)
+import './Dog.css';                 # <-- import [ComponentName].css file used by this [ComponentName].js-file
+
+function Dog (props) {
+    return (
+        <div className="dog">
+            <h1>Name: {props.name}</h1>
+            <h2>Age: {props.age}</h2>
+        </div>
+    )
+}
+
+export default Dog;
+
+
+*****************************************
+ Dog.css file                       # [ComponentName].css
+---------------------
+
+.dog {
+    background: lightbrown;
+    height: 200px;
+    width: 200px;
+    border-radius: 5%;
+}
+
+*****************************************
+App.js file                         # Combines all the components into one App
+---------------------
+
+import React from 'react';
+import './App.css'
+import './Dog/Dog'                  # Reference to the Dog.css file is included in the Dog.js file
+
+
+const App = () => {
+    return(
+        <div>
+            <Dog name="Zigi" age="9" />     # <-- name and age properties of this entity of Dog() function call
+            <Dog name="Betsy" age="8" />    # <-- name and age properties of this entity of Dog() function call
+        </div>
+    )
+}
+
+export default App;
+
+*****************************************
+Index.js file                       # "Root" .js file
+---------------------
+
+import React from 'react';
+import ReactDOM from 'react-dom';           # "The react-dom package provides DOM-specific methods that can be used at the top level of your app and as an escape hatch to get outside of the React model if you need to. Most of your components should not need to use this module."
+import './index.css';
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));  // Render(what, where)
+
+*****************************************
+index.html file                     # Renders the Index.js file
+---------------------
+<body>
+    <div id="root"></div> 
+</body>

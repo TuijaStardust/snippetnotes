@@ -1,0 +1,72 @@
+Notes by Tuija P. / 2019-09-25
+
+******
+Source of information:
+https://thisinterestsme.com/php-getters-and-setters/
+******
+
+PHP Getters and setters
+
+“Getters” and “Setters” are object methods that allow you 
+to control access to a certain class variables / properties. 
+Sometimes, these functions are referred to as “mutator methods”. 
+
+A “setter” allows you to “set” the value of a given property.
+
+A “getter” allows to you to retrieve or “get” value of a given property. 
+
+''' 
+<?php
+
+class Example {
+
+    // Property inside the Example class ($variable)
+    private $property1;
+
+    // Set the property1
+    public function setProperty1($value) {
+        $this->property1 = $value
+    }
+    // when calling the function, the value inside the brackets 
+    // can be added into the class object entity and used later.
+
+    // Get the property1 value
+    public function getProperty1() {
+        return $this->property1
+    }
+
+}
+
+?>
+'''
+
+To provide ACCESS to our private properties, we have created “getter”. 
+These functions simply RETURN THE VALUES of private properties. That is all 
+they do.
+
+Because the visibility of this property is set to private, you will also be 
+unable to modify or “set” the value. Instead, you will have to use one 
+of the “setter” functions that we created.
+
+-----
+USING THE METHODS TO SET AND ACCESS VALUES 
+
+1. Initiate the object.
+2. Set new value to the property using setter method. 
+3. Retrieve the value of the property using getter function
+
+
+'''
+// Instantiate the object. (New entity). [$variable name can be anything, rather something that describes it]
+$example1 = new Example();
+
+// set value to the $property1
+$example1->setProperty1('Hello World);
+
+// get value of the $property1
+$property1 = $example1->getProperty1();
+
+// print out the value
+echo $property1;
+
+'''

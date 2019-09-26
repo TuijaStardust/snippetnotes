@@ -1,0 +1,52 @@
+Notes by Tuija P. / 2019-09-25
+
+******
+
+# Constructor is a function that makes it possible to define all
+# the properties of an object entity with one declaration.
+
+# It is located inside the class, after setters and getters.
+
+# (Create own file for the class [example.php])
+
+'''
+<?php
+
+class Example {
+    public $property1;
+    public $property2;
+    public $property3;
+    public $property4;
+
+    // ...add setters and getters here...
+
+    public function __construct ($property1, $property2, $property3, $property4) {
+        $this->property1 = $property1,
+        $this->property2 = $property2,
+        $this->property3 = $property3,
+        $this->property4 = $property4
+    }
+}
+
+?>
+'''
+
+# Using the constructor function:
+
+'''
+<!-- Reference to the file where the object is defined is inside head section in html code-->
+
+</head> include("example.php")</head>
+
+<?php
+
+// Create new object entity
+$firstExample = new Example("value1", "value2", "value3", "value4");
+// Create another object entity
+$secondExample = new Example("value5", "value6", "value7", "value8");
+
+?>
+
+'''
+
+

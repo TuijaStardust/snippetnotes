@@ -1,0 +1,61 @@
+SETTING UP NEW SYMFONY PROJECT (Linux Command Line)
+
+Notes by Tuija P. / 2019-09-25
+
+*****
+
+# CREATING NEW PROJECT
+composer create-project symfony/skeleton [projectname]
+
+# --> Go to project folder 
+cd [projectname]
+--> Initialize local git repository
+git init
+
+# create git repository in github/-lab and connect it to 
+# local respository
+
+# --> CLI download; fetch comman from the address given in the final 
+#     lines of the project creation 
+
+
+----- INSTALL USEFUL STUFF
+
+composer require server 
+composer require annotations 
+composer require profiler
+composer require twig
+composer require symfony/form
+composer require symfony/orm-pack
+composer require --dev symfony/maker-bundle
+
+
+----- DISPLAY INFORMATION ABOUT PROJECT
+
+php bin/console about
+
+
+----- CREATE CONTROLLER
+
+# Controller = the function that will be called 
+# whenever anyone goes to this [defined @Route] URL
+
+# Path: src/controller --> [NewController].php
+
+'''
+<?php
+
+namespace App\Controller;
+
+// Include libraries
+
+use Symfony\Component\HttpFoundation\Response; // for web 
+use Symfony\Component\HttpFoundation\Request;
+
+
+
+// The name of the file == the name of the class
+
+class NewController {
+
+}

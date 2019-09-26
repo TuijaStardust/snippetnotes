@@ -1,0 +1,143 @@
+# - Building mySQL databases using command line -
+
+# Written by Tuija P. / 2019-09-12
+
+# MariaDB Documentation: https://mariadb.com
+
+# !! Actual usable commands don't start with the # sign in the beginning !!
+--------
+
+# RUN MySQL in Debian
+sudo service mysql start
+sudo service mysql stop
+sudo service mysql restart
+
+----
+# !! Always add ; to end command inside MariaDB!!
+
+# START mySQL in Debian
+sudo mysql
+
+# SHOW DATABASES 
+SHOW DATABASES;
+
+# CREATE NEW DATABASE 
+CREATE DATABASE [databasename];
+
+# DELETE DATABASE 
+DROP DATABASE [databasename];
+
+# MOVE INTO A PARTIQULAR DATABASE 
+USE [databasename];
+
+# [databasename] >> CREATING EXAMPLE TABLE  
+CREATE TABLE [tablename](
+id integer primary key,
+firstname varchar(20) not null,
+lastname varchar(40) not null,
+department varchar(15),
+reward decimal(6,2)
+);
+
+# [databasename] >> SHOW TABLES WITHIN DATABASE; 
+SHOW TABLES;
+
+--
+MariaDB [testbase]> SHOW TABLES;
++--------------------+
+| Tables_in_testbase |
++--------------------+
+| testtable          |
++--------------------+
+1 row in set (0.00 sec)
+--
+
+# [databasename] >> SHOW THE CONTENT OF THE TABLE
+DESCRIBE [tablename]; 
+
+--
+MariaDB [testbase]> DESCRIBE testtable;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| id         | int(11)      | NO   | PRI | NULL    |       |
+| firstname  | varchar(20)  | NO   |     | NULL    |       |
+| lastname   | varchar(40)  | NO   |     | NULL    |       |
+| department | varchar(15)  | YES  |     | NULL    |       |
+| reward     | decimal(6,2) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+--
+
+
+# [databasename] >> INSERT DATA INTO TABLE
+INSERT INTO [tablename] (id, firstname, lastname, department, reward)
+values(1, 'Minnie', 'Mouse', 'Queen', 'Gold');
+# !! *(Value gold doesn't work, because it is defined as integer in the table. >> Default value is 0.)* !!
+
+
+# [databasename] >> SHOW THE COMPLETE TABLE AND DATA 
+SELECT * FROM [tablename];
+
+--
+MariaDB [testbase]> SELECT * FROM testtable;
++----+-----------+----------+------------+--------+
+| id | firstname | lastname | department | reward |
++----+-----------+----------+------------+--------+
+|  1 | Minnie    | Mouse    | Queen      |   0.00 |
++----+-----------+----------+------------+--------+
+1 row in set (0.00 sec)
+--
+
+# [databasename ]>> SEARCHING TABLE
+SELECT firstname, lastname FROM [tablename];
+
+--
+MariaDB [testbase]> SELECT firstname, lastname FROM testtable;
++-----------+----------+
+| firstname | lastname |
++-----------+----------+
+| Minnie    | Mouse    |
++-----------+----------+
+1 row in set (0.00 sec)
+--
+
+# [databasename] >> FILTERING DATA FROM THE TABLE USING WHERE
+SELECT * FROM [tablename] WHERE lastname = 'Mou%';
+--
+MariaDB [testbase]> SELECT * FROM testtable WHERE lastname = 'Mouse';
++----+-----------+----------+------------+--------+
+| id | firstname | lastname | department | reward |
++----+-----------+----------+------------+--------+
+|  1 | Minnie    | Mouse    | Queen      |   0.00 |
++----+-----------+----------+------------+--------+
+1 row in set (0.00 sec)
+--
+
+# % => can be replaced with anything 
+# !! Operators || (or) and && (and) can be used when filtering data. !!
+MariaDB [databasename] > SELECT * FROM [tablename] WHERE lastname = 'Mouse' && reward = 'Gold';
+
+# EXIT MySQL (MariaDB) back to Debian
+EXIT
+
+---- DEFINE USER AND PRIVILEGES 
+
+# Create new user 
+CREATE USER '[newuser]'@'localhost' IDENTIFIED BY '[password]';
+
+# The GRANT statement allows you to grant privileges or roles to accounts.
+# If the account does not yet exist, then GRANT can implicitly create it.
+# Privileges can be set globally, for an entire database, for a table or routine, or for individual columns in a table.
+# About granting privileges: https://mariadb.com/kb/en/library/grant/
+# Use the SHOW GRANTS statement to determine what privileges an account has.
+
+# GRANT ALL PRIVILEGES TO USE DATABASE
+GRANT ALL PRIVILEGES ON * . * TO '[newuser]'@'localhost';
+
+# LIST USERS AND PASSWORDS 
+SELECT user, password FROM mysql.user
+
+
+
+ 

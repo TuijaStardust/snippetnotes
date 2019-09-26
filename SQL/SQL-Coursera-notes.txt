@@ -1,0 +1,122 @@
+Notes by Tuija P. / 2019-09-17
+---
+Notes from Cousera course:
+"Introduction to Structured Query Language (SQL)" @ University of Michigan
+Lecturer: Charles Russell Severance
+
+You can audit the full lectures at Coursera.com for free.
+---
+
+## SQL ##
+
+--- SQL COMMANDS
+
+# Create a Database that uses utf8 character set
+# !! Databasename first leter captioned
+CREATE DATABASE [Database] DEFAULT CHARACTER SET utf8;
+
+# Create the columns of a database table
+CREATE TABLE Users (
+    name VARCHAR(128),
+    email VARCHAR(128)
+);
+
+# Insert rows into table and add values to the rows created.
+INSERT INTO Users (name, email) VALUES ('Zigi', 'zigi@test.com');
+INSERT INTO Users (name, email) VALUES ('Betsy', 'betsy@test.com'); 
+INSERT INTO Users (name, email) VALUES ('Colin', 'colin@test.com'); 
+
+# Deleting values out of a table (in this case email address attached to a name)
+DELETE FROM Users WHERE email='zigi@test.com';
+
+# Updating values in the table (SET)
+UPDATE Users SET name='BetsyRose" WHERE email='betsy@test.com';
+
+# read = SELECT 
+# * = all
+
+# Show the complete Users table
+SELECT * FROM Users;
+
+# Selects all the rows of the table where email equals the given address 
+SELECT * FROM Users WHERE email='betsy@test.com';
+
+# Sorting with order 
+SELECT * FROM Users ORDER BY email;
+
+# Wildcard search (finds all the rows where the name contains letter i)
+SELECT * FROM Users WHERE name LIKE '%i%';
+
+# Count how many records in the user table
+SELECT COUNT(*) FROM Users;
+
+# Count how many records there is in the user table with given email address
+SELECT COUNT(*) FROM Users WHERE email='betsy@test.com';
+
+SELECT * FROM Users ORDER BY email LIMIT 1,2;
+
+--- DATA TYPES 
+
+# text fields (small and large)
+    # not indexible
+    # sorting doesn't always work
+    # text fields have a character set - paragraph or HTML pages
+
+    TINYTEXT (up to 255 characters)
+    TEXT (up to 65K characters)
+    MEDIUMTEXT (up to 16M characters)
+    LONGTEXT (up to 4G characters)
+
+    CHAR 20 char 
+    VARCHAR 5-500 char
+
+# binary fields (small and large) -- rarely used 
+    # small images -data 
+    # not indexed or sorted
+    # Character = 8-32 bit of information
+    
+    # Byte = 8 bits of information
+
+    BYTE(n) (up to 255 bytes)
+    VARBINARY(n) up to 65K bytes
+
+    # Binary Large Objects (BLOB) -- (!! Slows down database !!)
+        # Large raw data, files, images, PDF's, word-docs etc.
+        # no translation, indexing or character set
+    
+    TINYBLOB(n) (up to 255)
+    BLOB(n) (up to 65K)
+    MEDIUMBLOB(n) (up to 16M)
+    LONGBLOB(n) (up to 4G)
+
+# numeric fields 
+    # Integer numbers are very efficient, take little storage and are easy 
+      to process because CPUs can often compare them with a single instruction.
+
+    TINYINT (-128, 128)
+    SMALLINT (-32768, 32768)
+    INT or INTEGER (2 billion)
+    BIGINT -(10**18 ish...)
+
+    # Floating point numbers can represent a wide range of values, but accuracy is limited
+
+    FLOAT (32-bit) 10**38 with seven digit of accuracy
+    DOUBLE (64-bit) 10**38 with 14 digits of accuracy
+
+    # Dates 
+
+    TIMESTAMP
+        # 'YYYY-MM-DD HH:MM:SS' (Starts from 1970, Ends to 2037)
+    DATETIME
+        # 'YYYY-MM-DD HH:MM:SS'
+    DATE 
+        # 'YYYY-MM-DD'
+    TIME 
+        # 'HH:MM:SS'
+
+    # Built-in MySql function for now in time
+    NOW(); 
+
+# AUTO_INCREMENT fields
+    # We need an integer primary key for each row so we can efficiently 
+      add a reference to a row in some other table as a foreign key.

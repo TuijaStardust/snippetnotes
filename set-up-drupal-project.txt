@@ -1,5 +1,6 @@
 # Written by Tuija P. / WSL:Debian (PC from school...)
 # Version 1. - 2019-09-12
+# Updates 2019-09-26
 
 # - Guide for setting up a Drupal project -
 
@@ -21,6 +22,8 @@ sudo apt-get install php-mysql
 sudo apt-get install libapache2-mod-php
 sudo apt-get install curl
 sudo apt-get install -y nodejs
+sudo apt-get install zip
+sudo apt-get install unzip
 
 ---- DATABASE
 
@@ -37,9 +40,45 @@ show database;
 ---- INSTALLING DRUPAL
 
 # CREATING NEW DRUPAL PROJECT
-sudo composer create-project drupal/drupal html --stability stable
+sudo composer create-project drupal/drupal [drupalname] --stability stable
 
-# INSTALL DRUPAL WITH BROWSWER 
+# CREATE SOME ADDITIONAL FILES
+# --> cd [drupalname]
+mkdir sites/default/files
+chmod a+w sites/default/files
+cp sites/default/default.settings.php sites/default/settings.php
+chmod a+w sites/default/settings.php
+
+# SET UP CLEAN URL 
+sudo apache2 ctl -M
+# look for rewrite_module
+# if module is not listed 
+sudo a2enmod rewrite
+
+# Add <directory> code snippet (below) to 000.default.conf inside <virtualhost> tags. 
+cd /etc/apache2/sites-available
+sudo nano 000-default.conf
+
+'''
+<Directory /usr/share/drupal8>
+   RewriteEngine on
+   RewriteBase /
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteCond %{REQUEST_FILENAME} !-d
+   RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+</Directory>
+'''
+
+# Change settings in /ect/apache2/apache2.conf
+'''
+<Directory /usr/share>
+       AllowOverride All
+...
+<Directory /var/www/> 
+       AllowOverride All        
+'''
+
+# INSTALL DRUPAL WITH BROWSER 
 # *For installation you need to know the name of the database*
 
 ---- CONNECT WITH GIT 
@@ -55,7 +94,7 @@ sites/*/files
 
 # >> *SHOULD LOOK LIKE THIS* >>
 
---
+'''
 # Ignore configuration files that may contain sensitive information.
 sites//settings.php
 sites//services.yml
@@ -66,7 +105,7 @@ sites/*/files/twig
 sites/*/files/php
 sites/*/files/js
 sites/*/private
---
+'''
 
 # >> SAVE AND EXIT 
 
@@ -206,15 +245,15 @@ composer install
 
 # INSTALL DRUPAL IN THE BROWSER 
 
-# INSTALL DRUSH IF NEEDED (line 118 >> )
+# INSTALL DRUSH IF NEEDED 
 
-# IMPORT THE DATABASE FROM DUMP (line 193)
+# IMPORT THE DATABASE FROM DUMP 
 
-# REPEAT THE CHANGE TO Settings.php (line 170 >> )
+# REPEAT THE CHANGE TO Settings.php 
 
-# IMPORT CONFIGURATION (line 196)
+# IMPORT CONFIGURATION 
 
-# CLEAR CACHES (line 139)
+# CLEAR CACHES 
 drush cr 
 
 ---- MODULE INSTALLATION
@@ -305,3 +344,5 @@ composer require drupal/search_kint
 echo 'alias drupal="/home/username/public_html/drupal_dir/vendor/bin/drupal"' >> ~/.bashrc
 
 source ~/.bashrc
+
+

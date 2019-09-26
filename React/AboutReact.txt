@@ -1,0 +1,50 @@
+# Notes by Tuija P.
+
+# Notes about the basic structures of React app
+-----
+
+# create-react-app creates default directories and files;
+
+# public --> Static resources
+    - index.html --> Root Html document where everything else is rendered 
+
+# src --> React components
+    - Index.js --> renders the app
+    - App.js --> Root component (where all the smaller components are collected)
+
+    - Index.css, App.css --> seperate css-file for each component
+
+
+----- COMPONENT TYPES
+
+# React has 2 types of components:
+
+# FUNCTIONAL (STATELESS) components
+    - a JavaScript function which returns a React element
+    - take props as parameter if necessary
+    - React introduced React Hooks in version 16.8, which now allows us 
+      to use state & other features in functional components.
+
+
+# CLASS (STATEFUL) components
+    - Class components are more complex than functional components including constructors, 
+      life-cycle methods, render() function and state (data) management.
+    - Component class extends Component, so React understands that this class is a component, 
+      and it renders (returns) a React Element.
+    - Can accept props (in the constructor) if needed
+    - Can maintain its own data with states
+    - Must have a render() method which returns a React element (JSX), or null
+
+
+----- 
+
+# A component is being called like an HTML tag, but starting with a capital letter:
+<Component />
+
+# When React sees an element representing a user-defined component, it passes JSX attributes 
+  to this component as a single object. We call this object “props”.
+
+# Always start component names with a capital letter.
+# React treats components starting with lowercase letters as DOM tags. 
+# For example, <div /> represents an HTML div tag, but <Welcome /> represents a component 
+# and requires Welcome to be in scope.

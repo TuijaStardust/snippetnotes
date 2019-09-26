@@ -1,18 +1,36 @@
-import React, {Component} from 'react';
-import './[Classname].css'; // <-- Create a css file with the component name
+# Notes by Tuija P. / 2019-09-17
+# Topic of the day: CREATING A CLASS BASED COMPONENT
+# Trying also to point it out how all the files are linked together... 
 
-class [Classname] extends Component { // <-- Class name = Component name
-    state= {
+----------------------------------------------------------------------
 
+--- CREATE COMPONENT FOLDER AND FILES
+
+# Create [ComponentName] folder under src folder
+# Create [ComponentName].js and [ComponentName].css files inside [ComponentName] folder
+# When importing, default file tpe is .js --> .js can be left out
+
+*****************************************
+Dog.js file                         # [ComponentName].js
+---------------------
+
+import React, {Component} from 'react';         # Import React library. Component class extends Component, so React understands that this class is a component, and it renders (returns) a React Element.
+import './Dog.css';                             # Import [ComponentName].css file used by this [ComponentName].js-file
+
+class Dog extends Component {                   # <-- Class name = Component name
+    state= {                                    # state is always the first thing inside a class
+                                                # states maintain the own data of the class Component
     }
+
+    # Const, let, functions...
 
     render() {
         return (
-            <div> // Always needs the base container
+            <div>                               # Always needs the base container <div>
                 <div></div>
             </div>
         )
     }
 }
 
-export default [Classname]; 
+export default Dog; 
