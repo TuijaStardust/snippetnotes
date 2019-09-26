@@ -4,8 +4,8 @@ This repository is my personal "notebook" for code snippets, general instruction
 
 Feel free to use it, if you find it useful. Let me know if you find mistakes/typos or terribly outdated data/info.
 
-# Written by Tuija / contact: tuija@tuijapispa.fi
-# Github: TuijaStardust
+## Written by Tuija / contact: tuija@tuijapispa.fi
+## Github: TuijaStardust
 
 
 *****
