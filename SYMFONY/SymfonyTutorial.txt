@@ -2,7 +2,10 @@
 
 https://symfonycasts.com/screencast/symfony
 
-notes by Tuija P. / 2019-10-02
+************************************
+Notes by Tuija P. / 2019-10-02
+
+Sample files in repository:
 
 -------------------------------------
 
@@ -15,12 +18,29 @@ composer create-project symfony/skeleton [projectname]
 
 # Install also:
 composer require server
+composer require annotations
+composer require sec-checker --dev // For development only
+composer require twig 
 
-# Command to run server (Quite ctrl+c)
+# Command to run server (Quit ctrl+c)
 ./bin/console server:run
 
 # List all ./bin/console commands 
 ./bin/console
+
+--- RECIPES
+
+https://flex.symfony.com
+
+# symfony.lock -file keeps track of which recipes have been installed
+# Recipes can add configuration files, create directories and modify files
+# so the library instantly works without any extra setup.
+
+# Logger
+composer require logger
+
+# Sending emails
+composer require mailer
 
 ---
 # 3 Important Directories: 
@@ -38,7 +58,8 @@ composer require server
 
 # Controller = a function that we write that builds the content for that page 
                * A controller must return a symfony response object* 
----
+
+--- ROUTING
 
 # config/routes.yaml
 
@@ -49,6 +70,47 @@ index:
 '''
 
 # index = internal name of the routes 
-# when someone goes to homepage (/) it should execut index method in DefaultController class
+# when someone goes to homepage (/) it should execute index method in DefaultController class
 
+# ==> Using ANNOTATIONS:
+# Include the library in the controller file: 
+  use Symfony\Component\Routing\Annotation\Route;
+
+# Add above controller method
+'''
+/**
+ * @Route("/[path]")
+ */
+'''
+
+---
 # The namespace = for every class and source => App\whatever subdirectory it's in 
+
+--- TWIG 
+
+https://twig.symfony.com
+
+# If your app needs to return HTML, one of the great tools is Twig.
+# Creates 'templates/' directory for twig templates
+
+# base.html.twig = Layout file
+# BLOCKS in base-template are "holes" that you can fill with child-templates
+# By extending it to other files, you get the basic HTML structure
+
+# If you want to render a (twig) template, you need to extend a base class; 
+# AbstractController 
+# => Shortcut methods {
+# return $this->render('[templatefilename.html.twig]'), [
+# an array of variables I want to pass into the template]
+# } 
+
+# Twig syntax;
+# {{ }} "say something" tag   // it prints 
+# {% %} "do something" tag    // whenever you need to do something (loop etc.)
+# {# #} twig comments 
+
+# Twig documentation:
+# Tags -> all the possible "do something" tags {% %}
+# Functions = functions :)
+# Tests 
+# Filters = kinda like functions but more hipster :)
