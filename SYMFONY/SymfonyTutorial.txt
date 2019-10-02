@@ -1,0 +1,54 @@
+"Stellar Development with Symfony 4"
+
+https://symfonycasts.com/screencast/symfony
+
+notes by Tuija P. / 2019-10-02
+
+-------------------------------------
+
+# Make sure (latest version of) composer is installed globally
+
+# Creating new project 
+composer create-project symfony/skeleton [projectname]
+
+# If using PhpStorm: ignore .idea directory from .gitignore
+
+# Install also:
+composer require server
+
+# Command to run server (Quite ctrl+c)
+./bin/console server:run
+
+# List all ./bin/console commands 
+./bin/console
+
+---
+# 3 Important Directories: 
+
+# Public = document root where all publicly accessible files are (index.php)
+#   index.php = "Front Controller" = the PHP file that is executed on every request
+
+# Config = holds configuration files
+ 
+# Src = source => my php codes
+
+---
+
+# Route = the configuration that defines the URL for a page 
+
+# Controller = a function that we write that builds the content for that page 
+               * A controller must return a symfony response object* 
+---
+
+# config/routes.yaml
+
+''' 
+index:
+  path: /
+  controller: App\Controller\DefaultController::index
+'''
+
+# index = internal name of the routes 
+# when someone goes to homepage (/) it should execut index method in DefaultController class
+
+# The namespace = for every class and source => App\whatever subdirectory it's in 
