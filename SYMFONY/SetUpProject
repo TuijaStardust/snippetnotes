@@ -15,7 +15,7 @@ git init
 # create git repository in github/-lab and connect it to 
 # local respository
 
-# --> CLI download; fetch comman from the address given in the final 
+# --> CLI download; fetch command from the address given in the final 
 #     lines of the project creation 
 
 
