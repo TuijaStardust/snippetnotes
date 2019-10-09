@@ -86,7 +86,7 @@ index:
 # Add above controller method
 '''
 /**
- * @Route("/[path]")
+ * @Route("/[path]/{slug}", name="something_descriptive")
  */
 '''
 
@@ -122,9 +122,31 @@ https://twig.symfony.com
 # Tests 
 # Filters = kinda like functions but more hipster :)
 
---- WEBPACK ENCORE
+# Adding to a twig block:
+'''
+{% block awesome %}
+    {{ parent() }}
 
----
+    //stuff you want to add to this block instead of overwriting
+
+{% endblock%}
+'''
+
+--- WEBPACK ENCORE
 
 # Use asset() to wrap css-file references ( href="{{ asset('/css/styles.css')}}") 
 # and image-references ( src="{{ asset('images/imagename.png') }}" )
+
+
+--- GENERATING URLS 
+
+# To get a listing of all the routes:
+./bin/console debug:router
+
+# To modify the name of the router (--> used in twig templates)
+# add name property to a ROUTER (after path attribute)
+
+# Define a value for {slug} <--"wildcard" value that needs to be defined in an article
+# Add the name and slug-value into a twig file link:
+# <a href="{{ path('something_descriptive', { slug: 'name-of-the-article' })}}">
+

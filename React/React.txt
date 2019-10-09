@@ -65,4 +65,7 @@ npm start
 # - Remove all css rules (Start from the scratch!)
 
 ----------------------------------
-
+npm install react-router-dom
+1. Router 
+2. Route Switch <- path 
+3. Link <- to

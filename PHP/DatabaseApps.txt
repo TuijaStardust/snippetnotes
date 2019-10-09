@@ -1,0 +1,165 @@
+BUILDING DATABASE APPLICATIONS IN PHP 
+*************************************
+
+# Notes from Coursera course "Building Database Applications in PHP.
+# Lecturer: Charles Severance, @University of Michigan
+
+# Notes written by Tuija P. / 2019-10-08
+
+---------------------------------------
+
+--- CRUD
+
+# Create 
+# Read 
+# Update
+# Delete
+
+--- OJECT ORIENTED PROGRAMMING
+
+# A way to capsulate information; grouping data and functionality
+
+# Objects include
+#  --> datafields
+#  --> methods
+
+# CLASS - a template (class = cookie cutter, object = cookie)
+# METHOD - A defined capability of a Class
+# OBJECT or INSTANCE - A particular instance of a Class 
+
+# The set of values of the attributes of a particular object is called its STATE.
+# The object consists of state and the behavior that is defined in the object's class.
+
+# Methods are an object's abilities. (Verb)
+# Method usually affects only one particular object
+
+# 'new' is the keyword for creating a new instance of and object (stamping out a new cookie)
+# Each distinct object can be stored in its own $variable 
+# (multiple instances of same class --> each instance has own copy of instance variables)
+
+# -> is a "within" operator: access item (method/attribute) within an OBJECT (dynamic)
+# :: static item operator: access staticly defined item in a CLASS (no $this)
+
+# "$this" is a predefined constant that can be only used inside of a method 
+# that is inside of a class.
+
+# __constructor  -- the primary purpose is to set up some instance variables to have 
+#                   the proper initial values when the object is created
+#                -- A method which is called when the instance/object is created 
+
+--- INHERITANCE IN PHP (SUBCLASSES)
+
+# "The ability to take a class and extend it to make a new class"
+# When we make a new class we can reuse an existing class (methods/attributes) and INHERIT all the capabilities
+# of an existing class and then add our own little bit to make our new class
+# (The new class [child] has all the capabilities of the old class [parent] - and then some more)
+
+--- VISIBILITY
+
+# Class member variables also have scope 
+# PUBLIC - can be accessed outside the class, inside the class and in derived classes 
+# PROTECTED - can be accessed inside the class, and in derived classes (subclasses)
+# PRIVATE - can only be accessed inside the class (i.e. private variables are not visible in derived classes) 
+
+--- PHP DATABASE LIBRARIES -- PDO 
+
+# PDO = Portable Data Objects
+# --> A way to access MySQL
+
+# SQL Queries on PHP
+# Creating the connection between PHP Software and MySQL Database:
+$pdo = new PDO('mysql:host=localhost;port=3306;dbname=misc','dbusername','dbpassword');
+        # (port 8889 for mac, port 3306 for linux/windows)
+$statement = $pdo->query("SELECT * FROM users");
+        # "Go find the method query in PDO object"
+        # sending strings of SQL to database server 
+while ( $row = $statement->fetch(PDO::FETCH_ASSOC) ) {
+    print_r($row);
+}
+        # Loop the selected records
+        # FETCH_ASSOC = "Give me back rows in assosiative array (key => value)"
+        # print_r loops through all the rows in the database table
+
+--- TO DO PATTERN
+
+# Put Database connection information in a single file and INCLUDE it in all your other files 
+# --> Helps make sure to not mistakenly reveal id/pw 
+# --> Don't check it into a public source repository
+
+# pdo.php [feel free to change the filename to something more descriptive]
+''' 
+<?php
+$pdo = new PDO('mysql:host=localhost;port=3306;dbname=[databasename]', '[dbusername]', '[dbpassword]');
+// see the "errors" folder for details...
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE EXCEPTION)
+'''
+# !!! Errormode is set to be "talkative" when things go wrong !WHILE DEVELOPING!
+
+# another.php [filename not pre-defined]
+'''
+<?php
+echo "<pre>;
+require_once "pdo.php";
+
+$statement = $pdo->query("SELECT * FROM users);
+while ($row = $statement->fetch(PDO::FETCH_ASSOC)){
+    print_r($row);
+}
+echo "</pre>";
+?>
+'''
+
+--- INSERTING DATA (for example from a FORM on a webpage)
+
+# In the example below there is a form that collects data; 
+# 'name', 'email' and password and sends it to MySql database table (users)
+# that includes columns for storing name, email and password data
+
+'''
+<?php 
+require_once "pdo.php";     // includes the PDO-connection
+if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
+    $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)"    // <-- "Placeholder" values (can be named anything; more clear if its the same as column names)
+    echo("<pre>".$sql."</pre>");
+    $statement = $pdo->prepare($sql);   // preparing statement
+    $statement->execute(array(          // Sending the actual data to database server (Run the query with given values)
+        ':name' => $_POST['name'],      // Replaces the $sql (command)string placeholders with actual values
+        ':email' => $_POST['email'],
+        ':password' => $_POST['password']
+    ));
+}
+?>
+
+<html>
+    <head>
+        <title>Form data to database example</title>
+    </head>
+    <body>
+
+        <!-- Print out the table->
+        <?php
+        $something = $pdo->query("SELECT name, email, password FROM users");
+        while (row = $statement->fetch(PDO::FETCH_ASSOC) ) {
+            echo("<tr><td>");
+            echo($row['name']);
+            echo("</td><td>");
+            echo($row['email']);
+            echo("</td><td>");
+            echo($row['password']);
+            echo("</td></tr>");
+        }
+        ?>
+
+        <!-- Add New User form section ->
+        <p>Add new user</p>
+        <form method="post">
+            <p>Name:<input type="text" name="name" size="40"></p>
+            <p>Email:<input type="text" name="email"></p>
+            <p>Password:<input type="text" name="password"></p>
+            <p><input type="submit" value="Add New" /></p>
+        </form>
+    </body>
+</html>
+'''
+
+--- DELETING DATA FROM DATABASE
