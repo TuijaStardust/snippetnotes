@@ -8,6 +8,8 @@ BUILDING DATABASE APPLICATIONS IN PHP
 
 ---------------------------------------
 
+Example file: DatabaseAppExample.php
+
 --- CRUD
 
 # Create 
@@ -91,7 +93,8 @@ while ( $row = $statement->fetch(PDO::FETCH_ASSOC) ) {
 <?php
 $pdo = new PDO('mysql:host=localhost;port=3306;dbname=[databasename]', '[dbusername]', '[dbpassword]');
 // see the "errors" folder for details...
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE EXCEPTION)
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+?>
 '''
 # !!! Errormode is set to be "talkative" when things go wrong !WHILE DEVELOPING!
 
@@ -138,8 +141,8 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
 
         <!-- Print out the table->
         <?php
-        $something = $pdo->query("SELECT name, email, password FROM users");
-        while (row = $statement->fetch(PDO::FETCH_ASSOC) ) {
+        $statement = $pdo->query("SELECT name, email, password FROM users");
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC) ) {
             echo("<tr><td>");
             echo($row['name']);
             echo("</td><td>");
@@ -163,3 +166,57 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
 '''
 
 --- DELETING DATA FROM DATABASE
+
+# Always delete on a POST method
+
+'''
+<?php
+require_once "pdo.php";
+
+if ( isset($_POST['user_id']) ) {
+    $sql="DELETE FROM users WHERE user_id = :zip";
+    echo "<pre>$sql</pre>";
+    $statement = $pdo->prepare($sql);
+    $statement ->execute(array(':zip'=>$_POST['user_id]));
+}
+?>
+
+<p>Delete A User</p>
+<form method="post"><p>ID to Delete:
+<input type="text" name="user_id"></p>
+<p><input type="submit" value="Delete /></p>
+</form>
+'''
+
+# Pattern: 
+# - Make an sql
+# - Put in your placeholders
+# - Do prepare 
+# - Do execute --> tell what you want to put in each placeholders
+# - Execute
+
+--- AVOIDING SQL INJECTION
+
+# Use prepared statements and placeholders properly
+# When the statement is executed, the placeholders get replaced
+# with the actual strings and everything is automatically escaped!
+
+--- ERROR HANDLING WITH PDO
+
+# Example code in errorExample.php 
+
+# Error messages are great when DEVELOPING
+# You don't want to show error messages to user in PRODUCTION (might reveal sensitive information)
+
+# PDO::ERRMODE_SILENT -- the default mode <-- !!!BAD!!!CHANGE IT!!! 
+# --> You always need to set the errormode.
+# Use PDO::ERRMODE_EXCEPTION --> Stops the code from running when it finds an error
+# --> To user: "Internal error, please contact support"
+# --> Send the real error message to error log <-- can be viewed later from the backend
+# error_log() storage location: check PHPInfo for the path to the log file
+
+# On Mac/Linux use online error handling: 
+tail -f [filename]
+
+# Catch  (try & catch) the exeption when you don't want to show the error message to 
+# user but print your own message instead.
