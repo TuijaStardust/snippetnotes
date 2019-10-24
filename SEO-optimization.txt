@@ -1,0 +1,144 @@
+Hakukoneoptimointi/
+Notes about SEO optimization 
+
+notes language: mainly Finnish
+
+written by Tuija P. / 2019-10-24
+
+Source material:
+https://hakukonemaailma.com/hakukoneoptimointiopas/     # (!language: Finnish)
+https://neilpatel.com/what-is-seo/ 
+
+Additional Reading list:
+ABOUT KEYWORDS:
+https://backlinko.com/keyword-research
+https://blog.hubspot.com/marketing/how-to-do-keyword-research-ht
+https://moz.com/help/keyword-explorer/keyword-research/keyword-suggestions
+https://ads.google.com/home/tools/keyword-planner/ 
+https://neilpatel.com/blog/how-to-generate-20000-monthly-search-visitors-through-long-tail-traffic/ 
+https://answerthepublic.com/
+
+CREATING HIGH QUALITY CONTENT - https://neilpatel.com/blog/ingredients-of-great-content/
+GOOGLEN HAKUTULOSTEN RANKKAUSTEN PERUSTEET - https://backlinko.com/google-ranking-factors [2019 version]
+https://neilpatel.com/blog/more-organic-traffic-with-lower-ranking/ 
+https://www.siegemedia.com/marketing/scalable-link-building 
+https://moz.com/learn/seo/schema-structured-data
+
+************************
+
+# Muokataan sisältö sellaiseksi, että käyttäjät ja hakukoneet ymmärtävät
+# Hakukoneen tehtävä on tuottaa relevantteja hakuja käyttäjille
+
+# Tavoitteena nousta 5 ylimmän hakutuloksen joukkoon (67% klikkauksista)
+# Käytännössä vain ekalla sivulla näkyvillä tuloksilla on merkitystä
+
+--- SISÄINEN OPTIMOINTI [SIVUN SISÄLTÖÖN LIITTYVÄT ASIAT]--- Miten sivun sisältö vaikuttaa hakukonenäkyvyyteen
+
+#   >> Ohjataan sivut tiettyihin hakutermeihin
+
+#   HAKUTERMIT
+
+#   • Minkälaisilla hakutermeillä kohderyhmä hakee palveluita? >> SANAMUODOT!
+#   • Hakutermejä tulee seurata säännöllisesti (trendit vaihtelee)
+#   • Listaa sivuston jokaisen sivun hakutermi [= avainsana] millä haluat näkyä hakukoneessa
+#   • Älä käytä samaa hakutermiä kahdella eri sivulla  
+#   • Määrittele sijainti tarkasti
+#   • "Look at a list of keywords considering the underlying motivation of each user"
+#   • Millä hakusanojen yhdistelmällä saat tarkennettua hakutulosten focusta (vrt. insinööri vs sähköinsinööri)
+#   • Haluat näkyä oikeassa paikassa, oikeille ihmisille
+
+#   • Mitä paremmin esillä sivulla, sitä paremmin löytyy haulla
+#   • EI YHDEN SIVUN SIVUSTOJA! [= Kaikki sisältö samalla sivulla]
+#       -> Hakukone lukee ja indeksoi jokaisen alasivun TEEMAN ja luokittelee sen käsittelemään 
+#          tiettyä aihetta
+
+#   ALASIVUJEN OPTIMOINTI
+
+#   • URL sisältää halutun hakutermin [katso -> PERMALINKS]
+#   • Selkeä navigointi (max. 3 klikkausta halutun sisällön saavuttamiseen)
+
+#   • Jokaisella sivulla pitää olla yksi pääotsikko <h1></h1> HTML-tagien sisällä [Pääotsikko 1. tekstinpätkä sivulla]
+#     >> Sivun pääotsikko sisältää hakutermin! 
+#   • Käytä hakutermiä myös alaotsikoissa
+#   • Käytä teksteissä väliotsikoita
+
+#   • Varmista, että hakutermi löytyy myös sivun teksteistä - EI KUITENKAAN LIIAN USEIN! >> Varmista, että teksti pysyy helppolukuisena
+#   • Uniikki tekstisisältö; muualta kopioitu teksti huonontaa näkyvyyttä
+#   • Varo tuplasisältöä sivuston sisällä; (= sama sisältö useammassa eri paikassa)
+#       -> metatietoihin lisätty <canonigal> osoittaa mikä versio halutaan näyttää hakukoneelle
+#   • Vähintään 300 sanaa / sivu
+#   • Jokaiselle alasivulle min. 1 linkki toiselle samaa aihetta käsittelevälle (arvostetulle) sivulle
+#     >> Ohjaa linkit avautumaan uuteen välilehteen/ikkunaan
+#   • Tekstisisällöt HTML tageissa
+
+#   • Vanhojen, relevanttien sivujen julkaisupäivän voi [= kannattaa] päivittää uudemmaksi ("way to signal Google freshness")
+#   • Vanhojen tekstien sisältöpäivitykset ja uudelleenjulkaisut (esim. vuosittain uudistuvat versiot)
+#   • Hakutermi kuvan/kuvien alt-tekstiin; (alt-tekstin olisi syytä liittyä siihen mitä kuva esittää...)
+
+
+#   HAKUTULOS HAKUTULOSTEN LISTAUKSESSA [METAKUVAUS]
+#   • Jotta hakutulosta oikeasti klikataa, tuloksen pitää näyttää relevantilta ja houkuttelevalta!
+#   • Räätälöi sivun otsikko <title> ; sisällytä hakutermi otsikkoon [YOAST: SEO title ] -> Näkyy selaimen välilehden tekstinä
+#   • Otsikon pituus 40-70 merkkiä (max. 70)
+#   • Hyvä otsikko vastaa kysymykseen tai herättää muuten huomion
+#   • Otsikko sisältää tekstin otsikon lisäksi sivuston nimen
+#   • Lisää luettavaa title otsikoinnista https://www.siegemedia.com/seo/title-tags 
+#   • Räätälöi hakukoneiden tuloslistauksissa näkyvä METAKUVAUS [max. 156 merkkiä] - "snippet"
+#   • Metakuvauksen teksti pitää esiintyä sivulla
+#   • Lisää julkaisupäivä metakuvauksen yhteyteen (artikkelin sivun julkaisuaika voi olla todella relevanttia tietoa hakijalle)
+#       -> YOAST : Show date in snippet preview? YES!
+#   • Räätälöity lyhennelmä parhaimmillaan houkuttelee klikkaamaan linkkiä, vaikka sijoitus ei olisi paras ("Visually appealing")
+
+#   MOBIILIOPTIMOINTI!!!
+#   • Sivuston responsiivisuus/skaalautuvuus
+
+#   • Sivuston latautumisnopeus >> Caching
+
+--- ULKOINEN OPTIMOINTI
+
+#   "Luotettavat" sivut linkittää sivustoon >> "luonnollisen" oloiset linkit parempia
+#   Yrityksen/nettisivun maine
+#   Monet hakevat suoraan sivustoa
+
+#   Linkit sosiaalisesta mediasta EI paranna hakunäkyvyyttä
+#   MUTTA sosiaalisen median kautta tunnettuvuus voi lisääntyä >> ihmiset hakeutuvat sivustolle 
+
+# HAKUKONEIDEN OHJEITA OPTIMOINTIIN:
+#   - sivuilla selkeä hierarkia
+#   - tekstipohjaiset linkit - väh. 1 linkki/sivu
+#   - oikolue tekstit - poista kirjoitusvirheet
+#   - luo sisältöä säännöllisesti >> https://www.successfulblogging.com/how-to-blog-consistently/
+#   - älä upota tärkeää tekstiä kuviin (burned to picture)
+
+# MITEN IHMISET HAKEVAT 
+#   - tiedon hakeminen - mitä, missä, milloin jne.
+#   - tekemisen hakeminen - ostaa jotain, kuunnella/katsoa jotain
+#   - navigointi - sivustolle, osoitetiedot jne.
+
+--- GOOGLE MY BUSINESS
+
+#   Lisää yritys "My Business" palveluun; näkyvyys Google maps kartalla >> mahdollisuus näkyä Applen kartalla
+
+***
+
+Random information
+
+# Hakukoneoptimoinnin "säännöt" muuttuu koko ajan!
+
+# 3 Most important indicators
+#   1. Links to the page
+#   2. Domain authority
+#   3. On-page markup
+
+# High-converting headline copy
+#   -> includes numbers 
+#   -> Between 5-9 words (or 16-18)
+#   -> Either clearly positive or negative sentiment - "Don't make these mistakes"
+#   -> Two parts; headline and a sub-headline
+#   -> Clear value proposition
+
+# Pretty permalinks! - includes keywords
+
+# When a visitor leaves your site after viewing only one page, Google considers that a bounce. 
+# The higher your bounce rate (number of visitors who leave your site instantly), 
+# the worse your page will rank on Google.
