@@ -23,6 +23,12 @@ GOOGLEN HAKUTULOSTEN RANKKAUSTEN PERUSTEET - https://backlinko.com/google-rankin
 https://neilpatel.com/blog/more-organic-traffic-with-lower-ranking/ 
 https://www.siegemedia.com/marketing/scalable-link-building 
 https://moz.com/learn/seo/schema-structured-data
+OPTIMIZED UX - https://conversionxl.com/blog/website-information-architecture-optimal-user-experience/
+SEO CRAWLER - https://robhammond.co/tools/seo-crawler
+
+WORDPRESS PLUGIN RECOMMENDATIONS
+Track Broken links - https://wordpress.org/plugins/broken-link-checker/
+Reroute broken links, canonical tags - https://wordpress.org/plugins/quick-pagepost-redirect-plugin/
 
 ************************
 
@@ -56,6 +62,7 @@ https://moz.com/learn/seo/schema-structured-data
 
 #   • URL sisältää halutun hakutermin [katso -> PERMALINKS]
 #   • Selkeä navigointi (max. 3 klikkausta halutun sisällön saavuttamiseen)
+#   • XML sivukartat crawlereita varten >> Wordpress plugin: https://wordpress.org/plugins/google-sitemap-generator/
 
 #   • Jokaisella sivulla pitää olla yksi pääotsikko <h1></h1> HTML-tagien sisällä [Pääotsikko 1. tekstinpätkä sivulla]
 #     >> Sivun pääotsikko sisältää hakutermin! 
@@ -63,9 +70,12 @@ https://moz.com/learn/seo/schema-structured-data
 #   • Käytä teksteissä väliotsikoita
 
 #   • Varmista, että hakutermi löytyy myös sivun teksteistä - EI KUITENKAAN LIIAN USEIN! >> Varmista, että teksti pysyy helppolukuisena
-#   • Uniikki tekstisisältö; muualta kopioitu teksti huonontaa näkyvyyttä
-#   • Varo tuplasisältöä sivuston sisällä; (= sama sisältö useammassa eri paikassa)
-#       -> metatietoihin lisätty <canonigal> osoittaa mikä versio halutaan näyttää hakukoneelle
+#   • Uniikki tekstisisältö; muualta kopioitu teksti (voi) huonontaa näkyvyyttä
+#   • [HUOM! VANHENTUNUT TIETO?] Varo tuplasisältöä sivuston sisällä; (= sama sisältö useammassa eri paikassa)
+#       -> https://neilpatel.com/blog/myths-about-duplicate-content/
+#   • Metatietoihin lisätty <canonigal> osoittaa mikä versio [linkki versioon] halutaan näyttää hakukoneelle [ORIGINAL]
+      <link rel="canonical" href="https://example.com/original-blog-post" />
+        -> YOAST: advanced > Canonical URL
 #   • Vähintään 300 sanaa / sivu
 #   • Jokaiselle alasivulle min. 1 linkki toiselle samaa aihetta käsittelevälle (arvostetulle) sivulle
 #     >> Ohjaa linkit avautumaan uuteen välilehteen/ikkunaan
@@ -89,10 +99,10 @@ https://moz.com/learn/seo/schema-structured-data
 #       -> YOAST : Show date in snippet preview? YES!
 #   • Räätälöity lyhennelmä parhaimmillaan houkuttelee klikkaamaan linkkiä, vaikka sijoitus ei olisi paras ("Visually appealing")
 
-#   MOBIILIOPTIMOINTI!!!
-#   • Sivuston responsiivisuus/skaalautuvuus
-
+#   SIVUSTON ARKKITEHTUURIIN LIITTYVÄT RATKAISUT
+#   • MOBIILIOPTIMOINTI!!! - Sivuston responsiivisuus/skaalautuvuus
 #   • Sivuston latautumisnopeus >> Caching
+#   • Sivuston salaus >> https!!!
 
 --- ULKOINEN OPTIMOINTI
 
@@ -142,3 +152,6 @@ Random information
 # When a visitor leaves your site after viewing only one page, Google considers that a bounce. 
 # The higher your bounce rate (number of visitors who leave your site instantly), 
 # the worse your page will rank on Google.
+
+# How to diagnose HTML improvements – Google’s Search Console (formerly Webmaster Tools) 
+# has an “HTML Improvements” report that will help you spot some of the issues.
