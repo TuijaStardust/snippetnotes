@@ -9,7 +9,7 @@ Source material:
 https://hakukonemaailma.com/hakukoneoptimointiopas/     # (!language: Finnish)
 https://neilpatel.com/what-is-seo/ 
 
-Additional Reading list:
+Additional Reading list and useful links:
 ABOUT KEYWORDS:
 https://backlinko.com/keyword-research
 https://blog.hubspot.com/marketing/how-to-do-keyword-research-ht
@@ -25,10 +25,14 @@ https://www.siegemedia.com/marketing/scalable-link-building
 https://moz.com/learn/seo/schema-structured-data
 OPTIMIZED UX - https://conversionxl.com/blog/website-information-architecture-optimal-user-experience/
 SEO CRAWLER - https://robhammond.co/tools/seo-crawler
+DOMAIN AUTHORITY: https://www.quicksprout.com/practical-steps-to-improving-your-websites-domain-authority/
+TRACKING SEO: https://moz.com/beginners-guide-to-seo/measuring-and-tracking-success
+MITKÄ ALASIVUT KERÄÄ SIVUSTOLLA HUOMIOTA - https://www.crazyegg.com/heatmap
 
 WORDPRESS PLUGIN RECOMMENDATIONS
 Track Broken links - https://wordpress.org/plugins/broken-link-checker/
 Reroute broken links, canonical tags - https://wordpress.org/plugins/quick-pagepost-redirect-plugin/
+Sivun muuntaminen salatuksi - https://wordpress.org/plugins/really-simple-ssl/
 
 ************************
 
@@ -75,7 +79,7 @@ Reroute broken links, canonical tags - https://wordpress.org/plugins/quick-pagep
 #       -> https://neilpatel.com/blog/myths-about-duplicate-content/
 #   • Metatietoihin lisätty <canonigal> osoittaa mikä versio [linkki versioon] halutaan näyttää hakukoneelle [ORIGINAL]
       <link rel="canonical" href="https://example.com/original-blog-post" />
-        -> YOAST: advanced > Canonical URL
+        -> YOAST: advanced > Canonical URL 
 #   • Vähintään 300 sanaa / sivu
 #   • Jokaiselle alasivulle min. 1 linkki toiselle samaa aihetta käsittelevälle (arvostetulle) sivulle
 #     >> Ohjaa linkit avautumaan uuteen välilehteen/ikkunaan
@@ -101,17 +105,28 @@ Reroute broken links, canonical tags - https://wordpress.org/plugins/quick-pagep
 
 #   SIVUSTON ARKKITEHTUURIIN LIITTYVÄT RATKAISUT
 #   • MOBIILIOPTIMOINTI!!! - Sivuston responsiivisuus/skaalautuvuus
-#   • Sivuston latautumisnopeus >> Caching
-#   • Sivuston salaus >> https!!!
+#       -> Mobiilisoveltuvuustestaus: https://search.google.com/test/mobile-friendly?utm_source=mft&utm_medium=redirect&utm_campaign=mft-redirect
+#   • Sivuston latautumisnopeus (1-3 s, max. 7 s) >> Caching
+#       -> Sivuston nopeustesti: https://www.thinkwithgoogle.com/intl/en-gb/feature/testmysite/
+#       -> Optimoi kuvakoot ja kuvien laatu >> CDN (Content Delivery Network)
+#   • Sivuston salaus >> HTTPS ja SSL!!!
 
 --- ULKOINEN OPTIMOINTI
 
 #   "Luotettavat" sivut linkittää sivustoon >> "luonnollisen" oloiset linkit parempia
+#       -> Luotettavsuusrankkaus: http://www.seomastering.com/trust-rank-checker.php
+#       -> Luotettavuuteen vaikuttaa: Auktoriteetti, "Bounce rate", Ikä, Brandi-identiteetti (tunnettuus)
 #   Yrityksen/nettisivun maine
 #   Monet hakevat suoraan sivustoa
 
+#   Sivustolle ohjaavat linkit (backlink) >> pyydä linkkausta, jos mahdollista
 #   Linkit sosiaalisesta mediasta EI paranna hakunäkyvyyttä
 #   MUTTA sosiaalisen median kautta tunnettuvuus voi lisääntyä >> ihmiset hakeutuvat sivustolle 
+#   "Anchor text" - Teksti, jota muut sivustot käyttävät viitatessa sivustolle 
+#       >> linkki toiselle sivulle upotettuna tekstiin, ei erillisenä, esim: 'klikkaa tästä"
+
+#   Eri kieliversiot sivustosta (jos tavoitteena laajempi yleisö)
+#   Yhteistyö "vaikuttajien" [= influencer] kanssa
 
 # HAKUKONEIDEN OHJEITA OPTIMOINTIIN:
 #   - sivuilla selkeä hierarkia
@@ -155,3 +170,27 @@ Random information
 
 # How to diagnose HTML improvements – Google’s Search Console (formerly Webmaster Tools) 
 # has an “HTML Improvements” report that will help you spot some of the issues.
+
+# Duplicate content and broken links (or 404 errors) are the two most common 
+# crawl errors plaguing most websites.
+
+# Your bounce rate is simply a measure of how many people view only one page on your site 
+# before immediately leaving again. -> Lover the bounce rate, better the page.
+
+# About external links:
+#   - Search engines might ignore the vast majority of links if they’re low-quality or spammy
+#   - Links from brand new sites are worth more than repeat links from existing sites
+#   - Links from other websites are worth more than a bunch of links from your own site (from one page to another).
+
+# How to get backlinks: https://backlinko.com/how-to-get-backlinks
+
+# If you’re trying to get links to this page, you want to get links from landing page or conversion-related sources.
+#   -> https://www.crazyegg.com/heatmap
+
+# Google recognizes influencers, and when they share your content, their share has more SEO juice than your neighbor’s.
+
+# Find an influencer: https://www.tribegroup.co/
+
+# You need to think long and hard about the angle of something before publishing it. 
+# If you tap into the emotional triggers of your audience, you will almost always 
+# make your content get more attention in the long run.
