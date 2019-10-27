@@ -185,4 +185,5 @@ mysql -u root
 
 # Create databases, users and grant rights for users depending what you need
 # See more instructions from file: mysql-commands.txt
+
 ----
