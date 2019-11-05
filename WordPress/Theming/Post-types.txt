@@ -1,0 +1,90 @@
+About WordPress Post types
+
+2019-11-05
+
+Source:
+https://developer.wordpress.org/themes/basics/post-types/
+
+**************************
+
+# Refers to all types of content (including posts and pages)
+# Internal location: wp_posts database table 
+                        >> differentiated by a database column post_type
+
+---- DEFAULT POST TYPES 
+
+Post (Post Type: ‘post’)
+
+# Used in blogs (reverse sequential order by time) >> post feeds
+# includes Date and time stamp 
+
+# Template files that use posts:
+# single.php and single-post.php, category.php and all its iterations, tag.php and all its iterations
+# taxonomy.php and all its iterations, archive.php and all its iterations, author.php and all its iterations
+# date.php and all its iterations, search.php, home.php, index.php
+# Read more:
+https://developer.wordpress.org/themes/template-files-section/post-template-files/
+
+--
+
+Page (Post Type: ‘page’)
+
+# A static post types outside of normal blog feed 
+# Without time stamp
+# Page templates can be applied 
+# Can be organized in hierarchical order 
+
+# Template files that use pages:
+page.php and all its iterations, $custom.php and all its iterations, front-page.php
+search.php, index.php
+
+--
+
+Attachment (Post Type: ‘attachment’)
+
+# Used to display images or media in content, link to relevant content
+# Uploaded through the media upload system
+# information (name, description etc)
+# images: metadata; size, thumbnails, location >> wp_postmeta table
+
+# Template files that display attachment post type:
+MIME_type.php, attachment.php, single-attachment.php, single.php, index.php
+
+--
+ALSO:
+Revision (Post Type: ‘revision’)
+Navigation menu (Post Type: ‘nav_menu_item’)
+
+---- CUSTOM POST TYPES 
+
+# Place custom post type functionality in a plugin 
+# >> If the theme is changed, custom post type content won't disappear
+
+# About creating custom post types in plugins:
+https://developer.wordpress.org/plugins/post-types/registering-custom-post-types/
+
+# Theme Developers can display Custom Post Types in any template file, often by using multiple loops.
+# While you generally won’t develop Custom Post Types in your theme, you may want to code ways to display Custom Post Types that were created by a plugin.  
+# The following templates can display Custom post types:
+single-[post-type].php, archive-[post-type].php, search.php, index.php
+
+# Read more:
+https://developer.wordpress.org/themes/template-files-section/custom-post-type-template-files/
+
+Custom Post type templates
+
+single-[post-type].php
+# The single post template used when a visitor requests a single post from a custom post type. 
+# For example, single-acme_product.php would be used for displaying single posts from a custom post type named acme_product.
+
+archive-[post-type].php
+# The archive post type template is used when visitors request a custom post type archive. 
+# For example, archive-acme_product.php would be used for displaying an archive of posts from the custom post type named acme_product. 
+# The archive.php template file is used if the archive-[post-type].php is not present.
+
+search.php
+# The search results template is used to display a visitor’s search results. 
+# To include search results from your custom post type, refer to the code sample; (register_post_type(), is_post_type_archive(), post_type_archive_title())
+
+index.php
+# The index.php is used if a specific query template (single-[post-type].php, single.php, archive-[post-type].php, archive.php, search.php) for the custom post type is not present.

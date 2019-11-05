@@ -1,0 +1,41 @@
+About WordPress Template Tags
+
+2019-11-05
+
+Source:
+https://developer.wordpress.org/themes/basics/template-tags/
+
+**********************
+
+# LIST OF TEMPLATE TAGS:
+https://developer.wordpress.org/themes/references/list-of-template-tags/
+
+# Template tags are the preferred method to pull content (another theme-file or content from database) into your theme because:
+    They can print dynamic content;
+    They can be used in multiple theme files;
+    They separate the theme into smaller, more understandable, sections.
+
+# A template tag is a piece of code that tells WordPress to get something from the database. 
+# It is broken up into three components:
+    A PHP code tag
+    A WordPress function
+    Optional parameters
+
+# Using template tags makes maintenance easier 
+# >> make changes to the root-file and changes will apply to all the places where it is referenced.
+
+# Display dynamic data (from database)
+# >> for example: <title> <?php bloginfo( 'name' ) ?> </title>
+
+---- USING TEMPLATE TAGS 
+
+# Print one line of php-code to call the template tag
+
+# Some template tags let you pass parameters. (Determine what is retrieved from the database)
+
+# Search engine for template tags and available parameters:
+https://developer.wordpress.org/reference/ 
+
+---- USING TEMPLATE TAGS WITHIN THE LOOP
+
+https://developer.wordpress.org/themes/basics/template-tags/

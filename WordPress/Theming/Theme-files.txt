@@ -1,0 +1,124 @@
+About WordPress Theme files
+
+2019-11-05
+
+Source:
+Wordpress.org: Theme Handbook 
+https://developer.wordpress.org/themes/getting-started/ >> Sub pages
+
+WordPress Glossary:
+https://wordpress.org/support/article/glossary/
+
+*******************************************
+
+# There are only two files absolutely required in a WordPress theme:
+
+index.php – the main template file
+style.css – the main style file
+
+AND SINCE WP 3.0 ALSO
+header.php 
+footer.php 
+
+# Although a theme only needs a index.php template, typically themes include 
+# numerous templates to display different content types and contexts.
+
+# Template partial is a piece of a template that is included as a part of another template.
+# Template partials can be embedded in multiple templates, simplifying theme creation.
+    header.php
+    footer.php
+    sidebar.php
+# Template parts (usually content of a template) can be embedded in template partials     
+
+# style.css should reside in the root directory of your theme; not within the CSS directory.
+
+---- THEME FOLDER AND FILE STRUCTURE
+
+assets (dir)
+      - css (dir)
+      - images (dir)
+      - js (dir)
+inc (dir)
+template-parts (dir)
+      - footer (dir)
+      - header (dir)
+      - navigation (dir)
+      - page (dir)
+      - post (dir)
+404.php
+archive.php
+comments.php
+footer.php
+front-page.php
+functions.php
+header.php
+index.php
+page.php
+README.txt
+rtl.css
+screenshot.png
+search.php
+searchform.php
+sidebar.php
+single.php
+style.css
+
+---- HOME PAGE DISPLAY 
+
+# By default, WordPress sets your site’s home page to display your latest blog posts.
+    >> "the blog posts index" >> home.php 
+
+home.php 
+# template file is used to render the blog post index (no matter if blog posts are on front-page or static page)
+#If WordPress cannot find front-page.php and “your latest posts” is set in the front page displays section, it will look for home.php. 
+# Additionally, WordPress will look for this file when the posts page is set in the front page displays section.
+
+front-page.php 
+# Overrides home.php template 
+# Used for both “your latest posts” or “a static page” as set in the front page displays section of 
+    Settings → Reading.
+
+# Fall Back Order for front-page display:
+    front-page.php 
+    home.php
+    page.php
+    index.php
+
+
+---- SINGLE POST DISPLAY
+
+# Fall Back Order for displaying single post 
+    single-[post-type]-slug.php 
+    single-[post-type].php
+    single.php 
+    singular.php 
+    index.php 
+
+---- SINGLE PAGE DISPLAY
+
+# Fall Back Order for displaying single page
+    get_page_templates() >> custom template file - The page template assigned to the page 
+    page-[slug].php
+    page-[ID].php
+    page.php 
+    singular.php 
+    index.php
+
+---- CUSTOM POST TYPE DISPLAY
+
+# Fall Back Order
+    archive-[post-type].php
+    archive.php 
+    index.php 
+
+---- ATTATCHMENT DISPLAY 
+
+# Fall Back Order 
+    [MIME-type].php
+    attachment.php
+    single-attachment-[slug].php
+    single-attachment.php 
+    single.php 
+    singular.php 
+    index.php 
+

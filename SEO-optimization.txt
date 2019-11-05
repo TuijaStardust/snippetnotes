@@ -8,6 +8,7 @@ written by Tuija P. / 2019-10-24
 Source material:
 https://hakukonemaailma.com/hakukoneoptimointiopas/     # (!language: Finnish)
 https://neilpatel.com/what-is-seo/ 
+https://miiaylinen.fi/pikaopas-yoast-seo-lisaosan-kayttoon/
 
 Additional Reading list and useful links:
 ABOUT KEYWORDS:

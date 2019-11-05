@@ -1,0 +1,170 @@
+Notes about template files
+
+Source:
+https://developer.wordpress.org/themes/basics/template-files/
+https://developer.wordpress.org/themes/template-files-section/page-template-files/
+https://developer.wordpress.org/themes/template-files-section/partial-and-miscellaneous-template-files/
+
+---- TEMPLATE FILES 
+
+# Template files are PHP files that contain a mixture of HTML, Template Tags, and PHP code.
+# The type of content that is displayed in by the template file is determined by the Post Type associated with the template file.
+
+# The catch-all template is index.php
+
+---- PAGE TEMPLATES
+
+# Page Templates are those that apply only to pages to change their look and feel.  
+#   Can be applied to a single page, a page section, or a class of pages.
+#   Display your site’s dynamic content on a page, e.g., posts, news updates, 
+    calendar events, media files, etc.
+# User should be able to select page template through admin screen
+
+# Template Tags are built-in WordPress functions you can use inside a template file 
+# to retrieve and display data 
+
+# Examples:
+    page.php        // affects any page
+    index.php 
+    page-slug.php   // only affects the page with this particular slug
+
+---- TEMPLATE HIERARACHY
+
+# Template Hierarchy is the logic WordPress uses to decide which theme template file(s) 
+# to use, depending on the content being requested.
+
+# WordPress looks for template files in the following order:
+    >> Page Template — If the page has a custom template assigned, WordPress looks for that file and, if found, uses it.
+    
+    >> page-[slug].php — If no custom template has been assigned, WordPress looks for and uses a specialized template that contains the page’s slug.
+    >> page-[id].php — If a specialized template that includes the page’s slug is not found, WordPress looks for and uses a specialized template named with the page’s ID.
+    
+    >> page.php — If a specialized template that includes the page’s ID is not found, WordPress looks for and uses the theme’s default page template.
+    >> singular.php — If page.php is not found, WordPress looks for and uses the theme’s template used for a single post, irregardless of post type.
+    >> index.php — If no specific page templates are assigned or found, WordPress defaults back to using the theme’s index file to render pages.
+
+---- IDENTIFYING A PAGE TEMPLATE
+
+# body_class() function 
+    >> prints classes in <body>
+        name (page)
+        pages's ID (page-id-[ID])
+        page template used
+# Example (page.php): 
+    <body class="page page-id-3 page-template-default>
+
+---- SINGLE USE TEMPLATE
+
+# File location: Specialized page templates must be in your theme’s folder (i.e. /wp-content/themes/my-theme-name/ )
+
+# Dictating whether a template is for global use vs. singular use is achieved by the way the file is named 
+# and whether or not is has a specific comment.
+
+# Copy your existing page.php file and rename it with your page’s slug or ID. 
+page-[slug].php
+page-[ID].php
+
+---- GLOBAL USE TEMPLATE
+
+# File location: Theme subfolder page-templates
+# If using Child-Theme >> cannot be in a sub-folder nor Parent Theme's folder
+
+# Dictating whether a template is for global use vs. singular use is achieved by the way the file is named 
+# and whether or not is has a specific comment.
+
+# A quick, safe method for creating a new page template is to make a copy of page.php and give the new file 
+# a distinct filename. That way, you start off with the HTML structure of your other pages and you can edit the new file as needed.
+
+# Access the page template in admin dashboard >> page > edit > Page Attributes > Template (list)
+
+---- PAGE TEMPLATE FOR SPECIFIC POST TYPE 
+
+# By default, a custom page template will be available to the “page” post type.
+# To create a page template to specific post types, add a line under the template name 
+# with the post types you would like the template to support.
+
+'''
+<?php
+/*
+Template Name: Full-width layout
+Template Post Type: post, page, event
+*/
+// Page code here...
+'''
+
+# Note that theme_page_templates is actually a dynamic theme_[$post_type]_templates filter. 
+# The dynamic portion of the hook name, $post_type, refers to the post type supported by the templates.
+# E.g. you can hook into theme_product_templates to filter the list of templates for the product post type.
+
+# You can use conditional tags in page templates (for example to show different type of header on some pages)
+    
+    if ( is_front_page() ) :
+    get_header( 'home' );               // require header-home.php 
+    elseif ( is_page( 'About' ) ) : 
+    get_header( 'about' );              // require header-about.php
+    else:
+    get_header();                       // require header.php
+    endif;
+
+# About and full listing of conditional tags:
+https://developer.wordpress.org/themes/basics/conditional-tags/
+
+---- PAGE TEMPLATE FUNCTIONS 
+
+get_page_template() 
+# Returns the path of the page template used to render the page.
+
+wp_get_theme()->get_page_templates() 
+# Returns all custom page templates available to the currently active theme 
+# (get_page_templates() is a method of the WP_Theme class).
+
+is_page_template() 
+# Returns true or false depending on whether a custom page template was used to render the page.
+
+get_page_template_slug() 
+# Returns the value of custom field _wp_page_template (null when the value is empty or “default”).
+# If a page has been assigned a custom template, the filename of that template is stored as the value of a custom field 
+# named '_wp_page_template' (in the wp_postmeta database table). 
+# (Custom fields starting with an underscore do not display in the edit screen’s custom fields module.)
+
+---- PARTIAL AND MISCELLANEOUS TEMPLATE FILES 
+
+# Some template files are pulled in (require/include) by other template files
+
+header.php >> get_header()
+# Contains all the code the browser renders for the header 
+# Opening tags for <html>, <body> and <div id="content" class="site-content"> >> closing tags in footer.php 
+# <body <?php body_class() ?>> gives body classes depending on template file / other used settings 
+
+--
+
+footer.php >> get_footer()
+# Contains all the code the browser renders for the header 
+# Variations of footers using conditional tags. 
+# Widgetized areas are common in footers. >> https://developer.wordpress.org/themes/functionality/widgets/
+# Closing tags for </div>, </body> and </html> tags opened in header.php
+
+--
+
+404.php 
+# Message to user the page is not available
+
+--
+
+comments.php
+# Displays comments users leave on page/posts.
+
+--
+
+sidebar.php
+# Sidebar must be registered >> Create template file for sidebar
+# Conditional statement to make sure empty sidebars are not displayed (sidebar contains an active widget):
+is_active_sidebar( '[sidebar-name]' )
+
+--
+
+content-[$slug].php >> get_template_part() 
+# Breaking templates into small pieces
+# Wrapper and page architecture elements in higher level files: page.php, home.php, comments.php
+# Code for displaying content in template files: content-page.php, content-post.php 
+# To display content-page.php >> call get_template_part( 'content', 'page' );

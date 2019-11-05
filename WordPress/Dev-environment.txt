@@ -1,0 +1,79 @@
+Creating a theme for WordPress 
+
+Current WP version:
+
+Notes written by Tuija P. / 2019-11-04
+
+Source:
+https://developer.wordpress.org/themes/
+
+WordPress coding standards:
+https://make.wordpress.org/core/handbook/best-practices/coding-standards/
+
+Underscores theme - base theme for development
+https://underscores.me/ 
+
+**********************************
+
+---- THEME BUILDING
+
+# There are only two files absolutely required in a WordPress theme:
+
+index.php – the main template file
+style.css – the main style file
+
+# Other files are optional but necessary fot building a theme
+
+---- TEST DATA
+
+# Download a package of test data for making sure the theme support all the basic WordPress data types
+https://themetest.wordpress.com/
+
+# Listing of WP data types
+https://codex.wordpress.org/Theme_Unit_Test
+
+---- DEBUGGING
+
+# Debugging PHP constants are located in wp-config.php file
+# These debug tools are meant for local testing and staging installs, not for live sites.
+
+# WP_DEBUG 
+# This allows you to view errors in your theme. 
+
+define( 'WP_DEBUG', false );    // Toggle OFF
+define( 'WP_DEBUG', true );     // Toggle ON
+
+# WP_DEBUG_LOG
+# This is a companion to WP_DEBUG that causes all errors to also be saved to a debug.
+# log log file inside the /wp-content/ directory. This is useful if you want to review all notices
+# later or need to view notices generated off-screen
+
+define( 'WP_DEBUG_LOG', true ); // Toggle ON (true) / OFF (false)
+
+# WP_DEBUG_DISPLAY
+# This is another companion to WP_DEBUG that controls whether debug messages are shown inside the HTML of pages or not. 
+# The default is 'true' which shows errors and warnings as they are generated. Setting this to false will hide all errors. 
+# This should be used in conjunction with WP_DEBUG_LOG so that errors can be reviewed later.
+
+define( 'WP_DEBUG_DISPLAY', false );    // Toggle ON (true) / OFF (false)
+
+---- HELPFUL PLUGINS FOR DEVELOPMENT PURPOSES
+
+# Debug Bar (WordPress plugin)
+# Adds an admin bar to your WordPress admin providing a central location for debugging.
+
+# Query Monitor (WordPress plugin)
+# Allows debugging of database queries, API request and AJAX called used to generate theme pages and theme functionality.
+
+# Log Deprecated Notices (WordPress plugin)
+# Logs incorrect function usage and the use of deprecated files and functions in your WordPress theme.
+
+# Monster Widgets (WordPress plugin)
+# Consolidates the core WordPress widgets into a single widget allowing you to test widgets styling and functionality in your theme.
+
+# Developer (WordPress plugin)
+# Helps optimize your development environment by allowing easy installation of tools and plugins that help in troubleshooting and ensuring code quality.
+
+# Theme-Check (WordPress plugin)
+# Tests your theme for compliance with the latest WordPress standards and practices.
+
