@@ -1,0 +1,14 @@
+Source:
+https://www.php.net/manual/en/control-structures.alternative-syntax.php
+
+# PHP offers an alternative syntax for some of its control structures; 
+# namely, if, while, for, foreach, and switch. 
+
+# In each case, the basic form of the alternate syntax is to:  
+
+change the opening brace to a colon -> : 
+and the closing brace to endif;, endwhile;, endfor;, endforeach;, or endswitch;, 
+
+# respectively.
+
+# Mixing syntaxes in the same control block is not supported.

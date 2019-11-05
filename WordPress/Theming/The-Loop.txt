@@ -1,0 +1,39 @@
+About WordPress Loop
+
+2019-11-05
+
+Source: 
+https://developer.wordpress.org/themes/basics/the-loop/
+
+*********************
+
+---- THE LOOP
+
+# Default mechanism for outputting posts through a theme's template files
+# WP Admin -> Reading settings -> Determines how many posts are retrieved / page (while loop condition)
+
+# Loop retrieves the posts (post-type defined in SQL query) to be displayed on the current page -> theme does the formatting
+# Formatting specified by theme is processed FOR EACH retrieved posts from database 
+
+-- The Basic Loop --
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php 
+if ( have_posts() ) : 
+    while ( have_posts() ) : the_post(); 
+        // Display post content
+    endwhile; 
+endif; 
+?>

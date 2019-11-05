@@ -73,14 +73,18 @@ https://developer.wordpress.org/themes/template-files-section/custom-post-type-t
 
 Custom Post type templates
 
-single-{post-type}.php
-# The single post template used when a visitor requests a single post from a custom post type. For example, single-acme_product.php would be used for displaying single posts from a custom post type named acme_product.
+single-[post-type].php
+# The single post template used when a visitor requests a single post from a custom post type. 
+# For example, single-acme_product.php would be used for displaying single posts from a custom post type named acme_product.
 
-archive-{post-type}.php
-# The archive post type template is used when visitors request a custom post type archive. For example, archive-acme_product.php would be used for displaying an archive of posts from the custom post type named acme_product. The archive.php template file is used if the archive-{post-type}.php is not present.
+archive-[post-type].php
+# The archive post type template is used when visitors request a custom post type archive. 
+# For example, archive-acme_product.php would be used for displaying an archive of posts from the custom post type named acme_product. 
+# The archive.php template file is used if the archive-[post-type].php is not present.
 
 search.php
-# The search results template is used to display a visitor’s search results. To include search results from your custom post type, refer to the code sample below.
+# The search results template is used to display a visitor’s search results. 
+# To include search results from your custom post type, refer to the code sample; (register_post_type(), is_post_type_archive(), post_type_archive_title())
 
 index.php
-# The index.php is used if a specific query template (single-{post-type}.php, single.php, archive-{post-type}.php, archive.php, search.php) for the custom post type is not present.
+# The index.php is used if a specific query template (single-[post-type].php, single.php, archive-[post-type].php, archive.php, search.php) for the custom post type is not present.

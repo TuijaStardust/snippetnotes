@@ -3,6 +3,7 @@ Notes about template files
 Source:
 https://developer.wordpress.org/themes/basics/template-files/
 https://developer.wordpress.org/themes/template-files-section/page-template-files/
+https://developer.wordpress.org/themes/template-files-section/partial-and-miscellaneous-template-files/
 
 ---- TEMPLATE FILES 
 
@@ -125,3 +126,45 @@ get_page_template_slug()
 # If a page has been assigned a custom template, the filename of that template is stored as the value of a custom field 
 # named '_wp_page_template' (in the wp_postmeta database table). 
 # (Custom fields starting with an underscore do not display in the edit screen’s custom fields module.)
+
+---- PARTIAL AND MISCELLANEOUS TEMPLATE FILES 
+
+# Some template files are pulled in (require/include) by other template files
+
+header.php >> get_header()
+# Contains all the code the browser renders for the header 
+# Opening tags for <html>, <body> and <div id="content" class="site-content"> >> closing tags in footer.php 
+# <body <?php body_class() ?>> gives body classes depending on template file / other used settings 
+
+--
+
+footer.php >> get_footer()
+# Contains all the code the browser renders for the header 
+# Variations of footers using conditional tags. 
+# Widgetized areas are common in footers. >> https://developer.wordpress.org/themes/functionality/widgets/
+# Closing tags for </div>, </body> and </html> tags opened in header.php
+
+--
+
+404.php 
+# Message to user the page is not available
+
+--
+
+comments.php
+# Displays comments users leave on page/posts.
+
+--
+
+sidebar.php
+# Sidebar must be registered >> Create template file for sidebar
+# Conditional statement to make sure empty sidebars are not displayed (sidebar contains an active widget):
+is_active_sidebar( '[sidebar-name]' )
+
+--
+
+content-[$slug].php >> get_template_part() 
+# Breaking templates into small pieces
+# Wrapper and page architecture elements in higher level files: page.php, home.php, comments.php
+# Code for displaying content in template files: content-page.php, content-post.php 
+# To display content-page.php >> call get_template_part( 'content', 'page' );
