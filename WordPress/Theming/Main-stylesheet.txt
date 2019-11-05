@@ -1,0 +1,41 @@
+- About the main stylesheet in wordpress theme -
+
+2019-11-05
+
+source:
+https://developer.wordpress.org/themes/basics/main-stylesheet-style-css/
+
+**************************
+
+Main stylesheet: style.css
+Location: theme root directory
+
+# WordPress uses the header comment section of a style.css to display information about the theme in the Appearance (Themes) dashboard panel.
+# (*) = required for a theme in WP theme repository
+
+'''
+/*
+Theme Name (*): Name of the theme.
+Theme URI: The URL of a public web page where users can find more information about the theme.
+Author (*): The name of the individual or organization who developed the theme. Using the Theme Author’s wordpress.org username is recommended.
+Author URI: The URL of the authoring individual or organization.
+Description (*): A short description of the theme.
+Version (*): The version, written in X.X or X.X.X format.
+License (*): The license of the theme.
+License URI (*): The URL of the theme license.
+Text Domain (*): The string used for textdomain for translation.
+Tags: Words or phrases that allow users to find the theme using the tag filter. A full list of tags is in the Theme Review Handbook. https://make.wordpress.org/themes/handbook/review/required/theme-tags/
+Domain Path: Used so that WordPress knows where to find the translation when the theme is disabled. Defaults to /languages.
+*/
+'''
+
+# After the required header section, style.css can contain anything a regular CSS file has.
+
+---- MAIN STYLESHEET FOR CHILD THEME 
+
+'''
+/*
+Theme Name: [Parent-theme Child]
+Template: [Parent Theme Name]
+*/
+''' 

@@ -1,0 +1,13 @@
+# There are only two files absolutely required in a WordPress theme:
+
+index.php – the main template file
+style.css – the main style file
+
+# Although a theme only needs a index.php template, typically themes include 
+# numerous templates to display different content types and contexts.
+
+# Template partial is a piece of a template that is included as a part of another template.
+# Template partials can be embedded in multiple templates, simplifying theme creation.
+    header.php
+    footer.php
+    sidebar.php

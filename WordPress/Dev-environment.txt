@@ -7,14 +7,22 @@ Notes written by Tuija P. / 2019-11-04
 Source:
 https://developer.wordpress.org/themes/
 
+WordPress coding standards:
+https://make.wordpress.org/core/handbook/best-practices/coding-standards/
+
+Underscores theme - base theme for development
+https://underscores.me/ 
+
 **********************************
 
-#Required files
+---- THEME BUILDING
 
-#There are only two files absolutely required in a WordPress theme:
+# There are only two files absolutely required in a WordPress theme:
 
 index.php – the main template file
 style.css – the main style file
+
+# Other files are optional but necessary fot building a theme
 
 ---- TEST DATA
 
