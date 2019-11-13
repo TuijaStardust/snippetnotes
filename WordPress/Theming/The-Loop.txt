@@ -17,19 +17,6 @@ https://developer.wordpress.org/themes/basics/the-loop/
 
 -- The Basic Loop --
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php 
 if ( have_posts() ) : 
     while ( have_posts() ) : the_post(); 
