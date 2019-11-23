@@ -1,4 +1,6 @@
-Notes about template files
+- Notes about template files -
+
+2019-11-05
 
 Source:
 https://developer.wordpress.org/themes/basics/template-files/
