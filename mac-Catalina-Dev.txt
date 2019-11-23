@@ -10,6 +10,7 @@ lines without # are executable commands or code snippets waiting to be copied
 sources: 
 https://getgrav.org/blog/macos-catalina-apache-multiple-php-versions
 https://www.dyclassroom.com/howto-mac/how-to-install-apache-mysql-php-on-macos-catalina-10-15
+https://medium.com/@jason.amador/setting-up-virtual-hosts-with-apache-on-macos-sierra-7d7d7a1f551a
 
 ------------------------------
 # !PHP and Apache are natively installed!

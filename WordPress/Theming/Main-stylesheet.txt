@@ -1,4 +1,4 @@
-- About the main stylesheet in wordpress theme -
+- About the main stylesheet in WordPress theme -
 
 2019-11-05
 
