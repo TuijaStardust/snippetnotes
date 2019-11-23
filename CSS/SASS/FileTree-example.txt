@@ -1,0 +1,53 @@
+Example of the Sass file tree
+
+2019-11-14
+
+source:
+https://www.creativebloq.com/web-design/switch-css-sass-wordpress-71515681
+
+******************************
+
+_reset.scss
+elements
+    _elements.scss
+    _lists.scss
+    _tables.scss
+forms
+    _buttons.scss
+    _fields.scss
+    _forms.scss
+layout
+    _content-sidebar.scss
+    _sidebar-content.scss
+media
+    _captions.scss
+    _galleries.scss
+    _media.scss
+mixins
+    _mixins-master.scss
+modules
+    _accessibility.scss
+    _alignments.scss
+    _clearings.scss
+    _infinite-scroll.scss
+navigation
+    _links.scss
+    _menus.scss
+    _navigation.scss
+site
+    _site.scss
+    primary (dir)
+    secondary (dir) 
+style.scss
+typography
+    _copy.scss
+    _headings.scss
+    _typography.scss
+variable-site   
+    _colors.scss
+    _structure.scss
+    _typography.scss
+    _variables-site.scss
+
+******************************
+

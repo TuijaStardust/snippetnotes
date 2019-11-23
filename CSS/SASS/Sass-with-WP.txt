@@ -1,0 +1,194 @@
+
+source:
+https://www.wpbeginner.com/wp-tutorials/introduction-to-sass-for-new-wordpress-theme-designers/
+https://www.creativebloq.com/web-design/switch-css-sass-wordpress-71515681
+
+******************************
+
+# SASS is preprocessor language -> Needs to be installed to local development environment
+# -> GUI app for Sass: Koala (Free, open source)
+http://koala-app.com/
+
+---- 
+
+# Makes using variables in css coding possible
+# Functions to generate blocks of repeated style code 
+# Breaking up the stylesheet into organised modules
+    -> Group CSS files into sections that serve individual purposes
+    -> Goal is to be able to know where code is based on its file name
+        - Variables
+        - Navigation
+        - Typography
+        - Sidebar widgets
+        - Footer
+        - Grid system
+        - ...
+    -> files are called partials
+        - partials file name always starts with underscore [ _filename.scss ]
+    -> To compile all partials: @import to main Sass file
+        - @import 'filename';
+# Import general styles before specific rules
+# Styles written in partials imported later have the ability to override styles in 
+#  partials imported earlier.
+    -> import partials that contain mixins and variables in the beginning of main Sass file
+    -> later partials can use those mixins and variables
+
+# Output style :compressed strips out comments
+    -> Add ! to the beginning comment block in style.scss file
+        '''
+        /*! 
+        Theme Name: My Awesome Theme 
+        ...
+        */ 
+        '''
+
+# Create a Sass ready new theme:
+# Underscore theme template (underscores.me) creates new theme including Sass template files 
+# -> Advanced 
+# -> _sassify option
+
+# Refactoring Sass:
+# Varibles allow to easily organize and update values repeated globally in a project 
+    - are best way to save data to single place -> Easy site-wide changes
+    - _variables.scss
+    - $colors
+    - $type-small/medium/large
+
+# Nesting allows to organizr Sass visually and generate complex selectors dynamically
+    - One element includes styles for multiple elements
+    - "Never nest more than three levels deep"
+    - & = placeholder for string of selectors above it
+    - & can also be used to duplicate or reverse the order of selectors
+
+# Functions allow to calculate values based on global variables and passed variables
+    - _functions.scss
+ 
+    '''
+    @function hover-color($color) {
+        @return lighten($color, 10%);
+    }
+    '''
+ 
+    - Calling the function in other partials:
+ 
+    '''
+    .button {
+        background-color: $red;
+        &:hover {
+            background-color: hover-color($red);
+        }
+    }
+    '''
+
+# Mixins allow to create blocks of styles that can be modified by passed variables
+    - _mixins.scss
+    - Mixins can take parameters to generate customised output
+    
+    '''
+    @mixin clearfix() {
+        &::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+
+    @mixin alert($color) {
+        border-radius: .5em;
+        border-top: 4px solid $color;
+        color: $color;
+    }
+    '''
+
+    - Using mixin in other partials:
+
+    '''
+    .content-container {
+        @include clearfix;
+    }
+    
+    .alert-error {
+        @include alert($red);
+    }
+
+    .alert-success {
+        @include alert($green);
+    }
+    '''
+
+# Scheme for keeping files organised:
+
+    /base
+        /variables 
+        /mixins 
+        /reset 
+        /typography 
+    /layout
+        /grid
+        /header
+        /footer
+    /vendors
+        /plugins
+        /vendors
+    /components
+        /buttons 
+        /menus 
+        /forms 
+        /widgets 
+    /pages 
+        /home 
+        /landing page 
+        /portfolio 
+
+ # Importing Sass partials from directories
+    - import each file into style.scss including the folder name in the import directive
+        @import 'base/variables'; // imports _variables.scss from the /base directory
+        @import 'base/mixins';
+        @import 'base/grid';
+
+    - create a placeholder partial in each directory that imports the partials in that directory
+        # style.scss:
+          @import 'base/base';
+
+        # /base/_base.scss
+        @import 'variables'; // imports _variables from the /base directory
+        @import 'mixins';
+        @import 'grid';
+
+
+---- SIMPLE EXAMPLE OF USING SASS
+
+# Create black theme (wp-content/themes/[myawesometheme])
+
+# Inside theme folder create another folder: stylesheets
+
+# Inside stylesheets folder create file style.scss
+
+# Open Koala 
+# -> Add new project
+# -> Locate theme directory and add it as project
+
+# Right-click -> Set output path
+# Select the root of theme directory /wp-content/themes/[myawesometheme]/
+
+# Open style.scss file
+# Add code:
+
+'''
+$fonts: arial, verdana, sans-serif;
+body {
+    font-family:$fonts;
+}
+'''
+
+# Save changes
+# -> Koala right-click:
+# -> Compile
+
+# Open style.css file to see the compiled result
+
+'''
+body {
+    font-family: arial, verdana, sans-serif;
+}
+'''
