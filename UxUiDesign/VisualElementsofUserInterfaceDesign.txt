@@ -1,0 +1,532 @@
+Visual Elements of User Interface Design
+
+Coursera course 1/4 for UI/UX Design Specialization
+
+Lecturer: Michael Worthington, California Institute of the Arts
+
+Notes by Tuija P. 2019-11-26
+************************************
+WEEK 1. - WHAT IS A USER INTERFACE?
+------
+
+Design First Approach
+
+Interface > UI / UX
+
+What is user interface?
+
+Design conventions include levels of flexibility
+
+Interface is the bridge between user and the content
+
+the interface (UI) shapes the experience (UX)
+
+UI
+- how it looks (interface)
+- visual design
+- form 
+- aesthetics
+- look & feels
+- organization
+- surface
+- visual identity
+- design driven
+
+
+UX
+- how it feels (experience)
+- non-visual design 
+- feel
+- navigation 
+- story 
+- structure
+- content 
+- engagement
+- user driven
+
+user experiences form before content
+designer experiences content before form 
+
+Interface conventions
+- real world knowledge >> analog models; buttons, menus
+- learned behaviour (conventions)
+- cause and effect (action/reaction)
+- logic / familiarity / consistency (logic/systematic)
+- fast (no unnecessary steps)/ seamless (easy)
+- immediate intuition >> a few interactons teach a lot (know how button works > know how ALL buttons work)
+- payoff / results / fulfillment >> expect something in return
+- undo / redo / confirm >> Ability to fix everything
+
+Preexisting modes of interacting
+Preexisting interface conventions
+
+"You don't want ti give them such a conventional interface that there is nothing INTERESTING or 
+ENGAGING or ORIGINAL about that experience."
+
+---
+Physical conventions
+- Hand / Eye / Body
+- We interact different ways with different sized screens
+- "keypad size in relation to size of our hand"
+
+Digital conventions
+- navigation on top of the screen (needs to have space for the menu to fall down)
+- search > search icon
+- hierarchy of the interface
+
+READING: 
+The 4 Golden Rules of UI Design by Nick Babich, Adobe Blog
+10 Usability heuristics for User Interface design by Jakob Nielsen, Nielsen Norman Group website
+Principle of consistency and Standards in User Interface design by Euphemia Wong, Interaction Design Foundation
+
+In many ways template equals distilled versio of conventions
+Template is good for repetitive similar kinds of content
+
+Content Specific Design
+"What is the best kind of interface possible for this kind of content
+>> Context Specific Design
+
+aesthetics + functionality = complete digital experience 
+
+"specificity of any digital experience comes through the aesthetics of that experience whereas the 
+functionality is coming from the interface conventions or the utility"
+
+>> make object resemble something similar in physical life > shape, aesthetics, typography
+OR 
+We don't need to try and create something that physically looks like the element because we already understand
+that everything on the screen is going to be interactive due to interface conventions that we're already
+familiar with.
+
+The aesthetic part of the interface design is about giving the interface a sense of individuality
+The functional part of the interface design is about giving it some familiarity, ease of use.
+
+
+WEEK 2. - FORMAL ELEMENTS OF INTERFACE DESIGN
+------
+
+A Brief: 
+- outlines and describes the project before you begin designing
+    >> goals
+    >> constraints
+    >> platform
+    >> audience
+    >>> KNOW YOUR PROJECT
+- Describes what the project is, goals and how it's going to work 
+    >> content, context and audience
+- what it is we're goin to make
+    >> what is it?
+    >> who is it for?
+    >> Where does it live?
+    >>> PRE-DESIGN 
+
+Style and mood of project 
+>> ENVISION THE OVERALL DESIGN DIRECTION (Broad visual strokes)
+
+Envison the design, image the design, try to give it a visual form even though it doesn't really exist
+    >> What does it LOOK like?
+    >> What does it FEEL like?
+    >> How do you DESCRIBE it?
+
+Language as a design tool - words as content
+>> What kind of words might we use to describe it?
+>> Use sets of words describing app as stepping stones in naming and branding
+    > linguistic research and playing around with other words around the topic 
+>> language can set the mood and the tone same way as visuals do, at every level throughout app 
+
+Color & shape
+>> Color as (overall) mood
+BW -> Serious design
+Yellow + black -> Danger
+Bright color -> Fun 
+Cool palette -> icy, cold feeling 
+>> Real world and fabricated connotations
+>> Figure out how to control the subjectivity and relativity to create the wanted athmosphere and mood
+>> color can be used to create a system of difference and similarity 
+>> color can signify an event or activity
+>> using color to show progression
+
+>> shapes are used two different ways
+    > Interface Elements
+        - primarily functional (part of a system)
+        - Geometricly simple to understand -> easy to access
+    > Design Elements
+        - less systematic
+        - motives
+        - about look and feel
+        - "non-essential" Elements
+        - used to create graphic interface 
+>> building a system that relates to the user and how they interact with the content
+>> also building a flexible system, where we could label button anything we wanted to
+
+Imagery 
+>> content
+    - framed content (boxes etc.)
+    - contained and organized 
+        * functional comparative structure
+    - immersive imagery (part of interface university)
+
+>> create a mood
+    - non specific photography
+    - visual fomr always has some style or aesthetics attached to it 
+    - color, composition, visual aesthetics 
+
+>> part of navigation 
+    - often very reduced form
+    - has to work a small size
+    - has to be very recognizable
+
+>> part of interface system 
+    - when things you try to represent is very difficult to describe with words but easy to show with an image 
+    - includes always also an aesthetic function (mood, tone)
+
+"Everything has a form and because it has a form, it has an aesthetic value, it can create a mood.
+Your content will always have mood and your navigation, or interface design will always have mood as well."
+
+Typography 
+>> content
+    - text is language made physical
+    - text is fast and accessible
+    - text is accurate
+    - text is economical
+    - text can represent what cannot be depicted
+
+>> interfarce
+    - text has to have visual form - typographic representation
+    - type is fast to read - no confusion
+    - type can represent what cannot be depicted - f.e. democracy
+      > words are great for the accurate representation of complex non-visual concepts
+    - type is the fastest and most accurate way to communicate complex and specific ideas
+
+>> brandind
+    connotation + individuality = branding 
+    - form of the type - Connotation 
+    - "logotype and logo work together in harmony to form a single lockup"
+    - creating an identity typographically
+    - color dependence
+
+"Language has a great deal of flexibility in terms how it works."
+
+Icons 
+
+- Visual representation in a small and condensed form where the user can recognize it.
+- Icons look like the thing they're representing
+- interface icons 
+- Icon shows a (realistic) picture of the object ->  Pictorial
+- Symbol is not an accurate representation of the thing it's representing -> non-pictorial
+- image can work both as icon & symbol ->  magnifying glass - concept of searching (also zoom-in-zoom-out)
+- in branding an image becomes the symbol that is representative of a company ->  Branding 
+- ability to get value from both iconic meaning and the symbolic meaning
+- symbolic meanings have to learned
+
+"Goal is to combine what is known, what is visually obvious with what is learned."
+
+Simple rules for good icon:
+- Communication (ideas + aesthetics)
+    >> what do you want your icon to communicate?
+    -> Idea that communicates through its aesthetics as well.
+- Functionality (technical)
+    >> works different sizes, clear, legible
+- Audience -> User gets it!
+- Recognition (saturation + simplicity)
+    >> simple, striking, memorable icon
+
+
+WEEK 3. - ACTIVE ELEMENTS OF INTERFACE DESIGN 
+------
+Experience - Form - Function
+
+"What do the elements do?"
+
+>> How the interface is connected to its function or how it works
+- Form is always connected to the function in some way 
+
+SYSTEM
+- (visually) predictable 
+- economical 
+- logical 
+- expandable 
+
+How Does The Interface Work?
+LOGIC       |   INTUITION
+HIERARCHY   |   DISCOVERY
+SYSTEMATIC  |   LEARNING
+
+How Do We Engage With The Interface?
+THE KNOWN   |   THE UNKNOWN (intuitive learning by the user)
+THE FAMILIAR|   THE NEW
+FUNCTION    |   EXPERIENCE
+
+Speed and Style 
+- By reducing the graphic content of an interface and trimming it down to just its bare essentials, 
+    you can create much faster level of accessibility for the user to get to the content. 
+
+Speed:
++ Simple/direct 
++ Unambiguous 
++ Rapidly adoptable 
++ Familiar/predictable (simplicity, homogeneity)
++ Logical
+
+- homogenous
+- too familiar and predictable
+- too unambiguous and logical
+-> Boring experience 
+
+Style: (experience of accessing content)
++ Entertaining
++ Engaging 
++ Reewarding Experience 
++ Brandable 
++ Novel/Individual 
+-> Experience gives value
+
+- Obstruct content
+- Time-consuming
+- Frustrating Experience
+- Dates Rapidly 
+- Unnecessary 
+-> Creates frustration for the user 
+
+>>> HOW DO YOU USE THESE ASPECTS TOGETHER? - SPEED AND STYLE 
+
+"The best interface is the one that has the best relationship to its content, 
+the one that's the most sympathetic. The best interface is the one that is visible and invisible 
+at the same time, but in the right proportions. 
+
+Composition and structure
+
+"How you arrange the elements of the interface can really shape what kind of experience you want the user to have."
+
+make a mock-up that looks like it actually works! 
+
+functional content ->  content and the users priorities drive the composition
+- visual hierarchy 
+- using colors to bring out active information
+- ancillary icons and symbols 
+- familiarity (compared to other apps created for same functions)
+
+>> When the basic structure has been already figured out there's no point in reinventing it.
+    > improvements
+    > aesthetic version
+
+Emotion and experience  -> Content based on experience and exploration 
+- image based interface 
+- prioritazes experience, mood and tone.
+- Has to be tried out by the user in order to be figured out - "learned experiental interface" 
+- Creating strong indiosyncratic individual visual experience.
+- meticulously controlled and composed imagery 
+
+******
+
+Pattern Libraries
+
+In graphic design terms, a pattern library is similar to a style guide or identity manual 
+but applied to a website. It is basically a document outlining the overarching design for the website 
+(or app) as well as all the elements within it.
+
+The primary reason for creating a pattern library would be to ensure the UI stays consistent. 
+(The first article digs into a few more reasons why a pattern library would be useful, 
+especially for complex projects or within large organizations.) For the purposes of this course, 
+however, please take a look at the second link to see some examples of other pattern libraries 
+and style guides. It’s useful to get a sense of how other designers and design teams formulate 
+a consistent UI across an entire site, and also the level of detail required when you have a lot 
+of content at hand!
+
+How to create a pattern library and why you should bother, by Paul Boag, Boagworld, July 11 2017.
+https://boagworld.com/design/pattern-library/
+
+Pattern library and style guide examples on Website Style Guide Resources
+http://styleguides.io/examples.html
+
+******
+
+Buttons
+
+>> A button is a self-contained object that is:
+    - interactive 
+    - you van click on or interact with 
+>> It only works as a button if the user knows it's a button, not just a shape. 
+>> familiar forms
+    > size - cursor / finger / legible > How it's going to be used 
+    > shape - function / label / screen
+    > color - signifiers / system 
+    > dimension - "trompe" l'oeil" (shadows and highlights to create fake dimentionality)
+    > system - logic / placement 
+>> Anything can be a button if the user knows it's a button > It has to be imediate knowledge for the user 
+>> Clear labeling > User knows exactly what the button does (Remember also accessibility!)
+
+How to design better buttons 
+https://www.smashingmagazine.com/2016/11/a-quick-guide-for-designing-better-buttons/
+
+7 Rules for mobile UI button design
+https://uxplanet.org/7-rules-for-mobile-ui-button-design-e9cf2ea54556
+
+Other navigational means of Interaction
+- Simple
+- Fast 
+- Functional 
+>> Design conventions are there for a reason > Use them when they are the best solution
+    > Shape, Scale, Contrast, Clarity, Economy
+    > Function
+    > Aesthetics
+    > Responsivity
+>> Micro decisions all contribute to the look and feel of the interface.
+
+Dropdown menu
+    > Shape of box 
+    > Scale of box 
+    > Color of box
+    > Relationship to main menu
+    > Relationship to elements 
+
+    > Typeface 
+    > Weight / Size 
+    > Leading / Case 
+    > Color of type 
+    > State Change 
+
+>> INTERFACE DESIGN IS A RELATIONAL ACTIVITY
+    > All of the different design decisions are all interconnected = Each design decision works in a relationship
+      with every other design decision 
+    >> COMPLETE INTERFACE
+
+States and changes (states of existence)
+    - Normal state - more visibility ->  contrats                   | Recognition
+    - Hover state - less visibilitiy -> less contrast               | Confirmation
+    - Press state - most visibilitiy -> contrast                    | Activation
+    - Inactive state - least visibilitiy -> low contrast (ignored)  | Rejection
+
+>> The element should look different enough to represent different states but similar enough so that
+    they can belong to same family 
+
+>> "You have to start to think about how your interface elements are going to animate."
+
+WEEK 4. - COMPOSING THE ELEMENTS OF INTERFACE DESIGN 
+
+Hierarchy of content - What goes where and why?
+
+Hierarchy of function 
+    - What's important to the user? 
+    - What's not important to the user?
+    - What are the things that they might not want to do straightaway?
+
+Hierarchy of intention
+    - What's important to the client?
+    - What's the intention of the client?
+    - Why are you making the website/app in the first place?
+
+>> Ideally hierarchy of intention and hierarchy of function are the same.
+
+"What's the first thing the user sees, because it's going to set the tone for the rest of their experience"
+
+First things first
+    - What's the first thing the user sees?
+    - What's the user's first impression?
+    - What's the first thing the user does?
+    >> seeing, thinking and physically reacting
+
+"The initial visual experience you give to the user is a foreshadowing of the rest of the experience they'll have on site"
+
+>> When designing an interface, the first thing we're really doing is articulating the problem 
+    and figuring out what is a good solution for that.
+
+>> What is the best visual solution and what the main design elements are. What is the hierarchy of those elements 
+
+Conventions and Expectations
+
+"Our screens are often divided up in very conventional ways and as a user interface designers we have to 
+figure out how to use these conventions."
+
+Relationship of 4 self-contained area:
+>> Content area is normally the most important in terms of scale and visual attention
+>> Branding
+>> Navigation 
+>> Functionality
+
+Simplest structural division:
+    - Content that might change frequently
+    - Elements that remain stable
+
+"Where everything is laid out in front of us on a web page, on an app everything is hidden, or condensed or sequential."
+    > Navigation is hidden until we need it
+
+Web interface:
+>> All out on display
+>> Focus on multiple tasks
+
+
+Phone interface:
+>> Hidden until needed
+>> When we travel to other screens, we want to do that in a fluid way; Swiping and scrolling
+    - Menus coming from side with a swipe
+>> Everything is packed away until you need that specific tool; nothing should get in the way of the small
+    visual field that is our only place to show content 
+>> Focus on sigle tasks
+
+Structures & Grids / Platforms and Screen sizes
+
+Computer screen
+    - More real estate
+    - Focus on multiple tasks
+    - Single screen
+>> More elements to organize 
+    - Grids
+    - Spacing
+    - Scale 
+    - Systems 
+    - consistency
+>> Design-centric process (big decisions)
+    <header> Navigation </header>
+    <body> Content - Grid; rows, columns, gutter, margins, image area (variables), caption area  </body>
+>> A need to decide how images with other proportions are going to fit into image area
+    - fill the width
+    - fill the height
+    - horizontal and vertical spaces are even
+    - typesize in relation to text box
+>> Readable type
+
+Mobile screen
+    - Less real estate
+    - Focus on single tasks
+    - Multiple screen
+    - Smaller window on a much larger world
+
+>> Before adding any images / information / real content:
+>> Organizational decisisons and formal design decisions
+    - figure out grid and system
+    - scale
+    - proportion of images 
+    - captions 
+    - spacing between images
+    - Which pieces of information go where 
+
+>> (Relative) Scale
+>> Viewing Distance
+>> Field of Vision
+
+>> Both our phone and computer are windows to content, and they might be looking at the same thing
+    but it's slightly different scales
+>> Structural relationships between size & format 
+>> Which size & format is the most important
+    >> Mostly depends on content & function 
+    >> WHO IS GOING TO USE IT?
+    >> What platform are they going to use it in?
+>> Increasingly it's going to be used and viewed on a small screen; handheld mobile device first and large computer screen second
+
+Putting it all together
+
+>> When designing prototypes UI and UX specialists often inform each other's work (not necessarily the same person)
+>> Supplying a programmer (or yourself) with visual assets (and instructions) to create a working prototype
+
+>> Creating a digital prototype
+    - Many screens showing all the different stages of interaction
+    - motion
+    - engagement with the user 
+    - the way interface is going to work can be a part of the plan without implementing them in these stages 
+    - consistence through screens
+
+>> Investigating 
+    - the graphic design 
+    - user interactions 
+    - changes in the interface 
+
