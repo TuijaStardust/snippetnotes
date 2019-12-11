@@ -1,0 +1,42 @@
+Configuration:
+
+Hot Module Replacement (HMR) is a tool for reloading your application in the browser without the
+page refresh. You can activate it in create-react-app by adding the following configuration to your
+src/index.js file:
+
+    '''
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    import './index.css';
+    import App from './App';
+    ReactDOM.render(
+    <App />,
+    document.getElementById('root')
+    );
+    if (module.hot) {
+    module.hot.accept();
+    }
+    '''
+
+    >> console.log() statements stay in the dev console
+    >> page refresh delays productivity
+    >> you can keep the application state after the app reloads 
+        >> you can debug from the exact point you’re working on.
+
+# ReactDOM.render()
+
+ReactDOM.render() uses a DOM node in your HTML to replace it with JSX. It’s a way to integrate
+React in any foreign application easily, and you can use ReactDOM.render() multiple times across
+your application.
+
+ReactDOM.render() expects two arguments. The first argument is for rendering the JSX. The second
+argument specifies the place where the React application hooks into your HTML.
+(It expects an element with an id='root', found in the public/index.html file.)
+
+    '''
+    ReactDOM.render(
+        <h1>Hello World of React</h1>,  // argument 1.) Render the JSX >> simple JSX or component (example: <App /> )
+        document.getElementById('root') // argument 2.) The place where React app hooks into in HTML >> (element by id="root")
+    )
+
+
