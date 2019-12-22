@@ -1,0 +1,39 @@
+Advanced CSS and Sass: Flexbox, Grid, Animations and More!
+
+***** Udemy course by Jonas Schmedtmann 
+
+Notes by Tuija Stardust / 22-12-2019
+------------------------------------
+
+INSTALLING AND RUNNING SASS IN PROJECT
+
+----- VOCABULARY
+
+save = saves the package info to package.json 
+-dev = package used for development (not on the online site)
+-w = watch - the script is re-run whenever changes are made 
+-g = install globally
+
+----- CLI COMMANDS 
+
+# First thing to do in a new project: Create a package.json file
+npm init 
+
+# Install node-sass to project folder 
+npm install node-sass --save-dev 
+
+# Create sass files (.scss) inside sass folder 
+touch main.scss 
+
+# Add script to package.json to compile sass into css 
+"compile:sass": "node-sass sass/main.scss css/style.css -w"
+
+# In terminal; Run the compiler script 
+# >> leave the "watch" window open so the script keeps running over again as you make changes 
+npm run compile:sass
+
+# Install live-server 
+sudo npm install live-server -g 
+
+# Run live server 
+live-server 
