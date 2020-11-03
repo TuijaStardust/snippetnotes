@@ -4,8 +4,158 @@ Coursera course 2/4 for UI/UX Design Specialization
 
 Lecturer: Michael Worthington, California Institute of the Arts
 
-Notes by Tuija P. 2019-11-26
+Notes by Tuija P. 2020-02-13
 ************************************
 
 WEEK 1 - IDEATION, ARTICULATION, DEVELOPMENT
 
+UX - How it feels (experience) >> non-visual Design
+    > feel 
+    > navigation
+    > story
+    > structure
+    > content engagement (user driven)
+
+"NOBODY WANTS ANOTHER APP THAT THEY DONT REALLY NEED!"
+
+Where do GOOD ideas come from?
+    > good problems > a REAL problems
+        - problem that can be solved with an app
+        - good focus
+    > good process > solving the problem in a good way 
+        - what is within that problem that you can solve with an app
+        - how are you going to solve it
+        - research
+        - testing
+        - revisions
+
+        > articulate ideas clearly
+        > test it with users and get feedback
+
+IDEAS AND GOALS
+    - Be as specific as you can be
+    - Articulate your ideas clearly 
+    - Expand and explore > all the different possibilities
+    - Refine and edit > decide which possibilites are relevant
+
+    Questions to ask:
+    > What does it do?
+    > How does it work? (How does it achieve its goal?)
+    > Who benefits from it?
+    > Why would someone use this?
+
+    - Hierarchy Of Functionality 
+        >> Hierarchy of ideas 
+        >> Which function is the most important?
+        >> Remember it and stick to it!
+    
+    >> The Big Idea
+        - one-line description
+            > My app... [fill in]
+            > Think about how you use the language and tone to describe the app
+            > No wasteful or extraneous language in words
+            > Think about specifics of each word
+        - minor (less important) ideas provide a supporting role
+        
+        - Does something similar exist?
+            > solve that problem in a better or more engaging way
+
+        - Who benefits from the app?
+            > audience?
+            > client?
+            - Is it for fun?
+            - Is it for social good?
+            - Is it to make money?
+        
+        - Why would someone use the app in the first place?
+
+    ANALYZING AN APP
+        - What does the app do? 
+            >> List out several functions of the app 
+            >> Determine a hierarchy of function among them
+            >> What is the primary/most important function?
+            >> What are the secondary/less important functions? 
+        - Review the primary/most important function
+            >> Come up with a one-line description of the app based upon it 
+        - How does the app work?
+            >> How the app goes about achieving its goal
+        - Who benefites from the app?
+        - Who are it's potential users?
+        - Why would someone use the app?
+            >> goal & outcomes
+
+RESEARCH AND DEVELOPMENT
+    - Check out the competition
+        > What apps exist that do exactly the same thing?
+        > What apps do something similar?
+            >> These apps might contain important information about what to do or what NOT to do with your app
+            >> Screenshots of UI design
+            >> Download the apps and go through them to actually experince them
+            >> Note similarities that you want to repeat (or avoid)
+        > What apps are content adjacent? (same broader subject matter)
+            >> similarities in agenda?
+            >> how to build a community of users around similar topic
+            >> Information about idea or structure of the app (design, conceptual ideas, similar user philosophy)
+            >> Stops research from becoming too predictable
+        > What UNRELATED apps are structural models?
+ 
+    - Developing the idea 
+        > Think about the idea as being amorphous – blob or amoeba that can change its shape
+        > Come up with a series of questions to help shape the idea:
+            - What if the app is entirely image-based? etc...
+        > Test idea and come up with a bunch of different options 
+            >> map out the possibilities (the different ways the idea could be manifested)    
+            >> test the water
+            >> extend the parameters
+            - What is special?
+            - What is original?
+            >> List EVERYTHING your app could do (empty your brain onto paper...)
+                - Decide wheter they are good or bad ideas
+                - Bounce idead off someone else / Talk to someone else (User feedback)
+            >> Broadness comes from extending the parameters of thought
+                - Open your mind 
+                - Widen your scope
+
+        > Examine ALL of the ideas
+        > Decide precisely which of those ideas is the best – (Which idea to pursue)
+        > Decide in what kind of order/hierachy to engage with the ideas
+
+    MAP OUT THE POSSIBILITIES 
+        - Consider the idea as an amorphous, unfixed entity 
+            >> It shouldn't be a clear idea in your mind right now, and that's ok
+        - Use a "what-if" strategy to build on the idea. 
+            >> In what ways could the idea manifest or expand?
+        - Don't censor yourself 
+            >> You can always say NO to any possibility later
+        - Map the idea out on paper with a pen
+        - Bounce the idea off of a friend/family member
+            >> What's their response?
+
+        >> Repeat the process until the idea(s) become more refined
+
+AUDIENCE AND RATIONALE (MOTIVATION)
+"Who benefits from my app?"    
+    - Might have overarching consequences for what the app does and how it works
+    - Who is my audience? (Hard core user group)
+    - Think of the audience from general approach to more specific
+    - Look out for personality traits, lifestyle traits, inventive or creative traits etc...
+    - 4 Categories of traits
+        > Political
+        > Social
+        > Financial
+        > Functional 
+    - Invent profiles of typical/ideal users 
+        >> "One-line user profiles" accurately describes users of the app
+        >> Archetype/stereotype of an user (that everybody can understand)
+    
+"How might the defined audience help define the rationale/motivation why someone would use the app?"
+    - Inventing users' concerns 
+    - Using the same methods as when figuring out the audience; trait categories 
+
+    >> User-centric concerns
+    >> User centered Design 
+    >> Design centered design 
+    >> The goals and intentions of the client 
+
+GOALS & OUTCOMES
+"What are my goals?"     

@@ -1,0 +1,226 @@
+Theme files:
+    index.php   << Blog-listing template
+    style.css
+    screenshot.png – (1200px X 900px)
+    front-page.php  << Front page template when front page is not blog listing page
+    single.php – Single post page
+    page.php – Basic page content
+    archive.php
+    header.php
+    footer.php
+    functions.php
+
+
+
+
+# WordPress uses While loops to loop through content
+
+    $variable = array ['this', 'that', 'he', 'she'];
+    $count = 0;
+
+    while($count < count($variable)) {
+        echo "<p>Hello World! $variable[$count] is awesome!</p>";
+    }
+
+
+THE LOOP 
+========
+
+    while(have_posts()) {
+            the_post();?>
+            <h2><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h2>
+            <div><?php the_content(); ?></div>
+    }
+
+
+BREADCRUMBS
+-----------
+
+    $theParent = wp_get_post_parent_id(get_the_ID())
+
+    if ($theParent) { ?>
+        // Add here the html for displaying breadcrumbs
+    <?php
+    }
+
+MENU OF CHILD PAGE LINKS
+------------------------
+
+    <?php
+    $testArray = get_pages(array(
+        'child_of' => get_the_ID(),
+    ));
+
+
+    if ($theParent or $testArray ) { ?>
+        // html to display the menu 
+
+        if($theParent) {
+            $findChildren = $theParent;
+        } else {
+            $findChildren = get_the_ID();
+        }
+
+        wp_list_pages(array(
+            'title_li' => NULL,
+            'child_of' => $findChildren,
+            'sort_column' => 'menu_order'   << Custom order; "weight" defined in the pages settings (Page Attributes)
+        ));
+        ?>
+        // html closing tags
+
+    <?php 
+    } ?>
+
+CUSTOM DYNAMIC WORDPRESS MENUS
+==============================
+
+functions.php
+    ''''
+    function [themeName]_features() {
+        register_nav_menu('headerMenuLocation','Header Menu Location'); 
+        // first argument is computed name (codename) [somethingDescribtive] 
+        // second argument is the menu location name that shows in the backend WP menu editor
+    }
+
+    add_action('after_setup_theme', '[themeName]_features'); 
+    ''''
+
+header.php (or any other template file where you wish to add WP menu)
+    ''''
+        <nav>
+            <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'headerMenuLocation'
+                ));
+            ?>
+        </nav>
+    ''''
+
+CUSTOM QUERIES
+==============
+
+# Useful when the default query is not at all related to what we want to custom query 
+# Allow loading whatever we want where ever we want 
+# WordPress includes class WP_Query() of which one can creat new instances >> $variable = new WP_Query();
+
+$queryName = new WP_Query(array(
+    'posts_per_page' => 4,                  << How many posts to shows
+    'category_name' => '[categoryname]',    << Show posts from specific category
+    'post_type' => 'post'/'page'            << Show based on post type
+));
+
+while ($queryName->havePosts()) {
+    $queryName->the_Post();
+    // html and content displaying function calls
+} wp_reset_postdata();                      << !IMPORTANT! Don't forget the reset query out of the custom mode
+
+CUSTOM POST TYPES
+=================
+
+# Example content type: Event
+# Custom post types shouldn't depend of the theme; instead as a plugin that can't be accidentally deleted 
+# In wp-content >> Create folder mu-plugins (= must use plugins)
+# In mu-plugins >> Create file [themeName]-post-types.php
+# You need to register new post types:
+
+    [themeName]-post-types.php
+
+    ''''
+    <?php
+
+    function [themeName]_post_types() {
+        register_post_type('event', array(      << first argument is the name of the created custom post; second argument is an array of options that descripe the custom post type
+            'has_archive' => true,  << registers the archive page for custom post-type 
+            'public' => true,       << makes post type visible to vievers and the editors of the website
+            'labels' => array(      << defines labeltexts; full list of keys @ https://developer.wordpress.org/reference/functions/get_post_type_labels/
+                'name' => 'Events',
+                'add_new_item' => 'Add New Event',
+                'edit_item' => 'Edit Event',
+                'all_items' => 'All Events',
+                'singular_name' => 'Event'
+            ),
+            'menu_icon' => 'dashicons-calendar',    << defines the admin menu icon; https://developer.wordpress.org/resource/dashicons/
+            ) );  
+    }
+
+    add_action('init','[themeName]_post_types');
+    ''''
+
+# Displaying custom post-type
+
+    front-page.php (or any other template where you want to display custom post-type posts)
+
+    ''''
+    <?php 
+    $homepageEvents = new WP_Query(array(
+        'posts_per_page' => 2,
+        'post_type' => 'event'
+    ));
+
+    while ($homepageEvents->have_posts()) {
+        $homepageEvents->the_post(); ?>
+        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+        <p><?php echo wp_trim_words(get_the_content(), 20); ?></p>
+        <a href="<?php the_permalink(); ?> ">Read More</a>
+    <?php     
+    } wp_reset_postdata();
+    ?>
+    ''''
+
+# To create working permalinks for custom post-types, you need to rebuild the permalinks;
+# Go to Dashboard > Settings > Permalinks > Save Changes
+
+# Creating page template for custom post-types;
+# single-[codeName].php     << filename is always single- + the coded name of the post-type defined in resgister post-type function + .php
+
+# Custom post-type archive page has to be registered in the post-type registration function
+
+# Custom fields
+
+# Add 'custom-fields' to register_post_type() function >> supports
+# In a custom post editor (WP) open upper right corner ••• >> Options >> Advanced panels >> Custom fields
+# Use a custom field plugin!!! (Use one/project) 
+    >> Advanced Custom Fields (ACF)
+    >> CMB2 (Custom metaboxes 2)
+
+Built-in functions
+------------------
+
+# If function starts with the_ it will echo the content
+# If function starts with get_ it will return a value that can be used elsewhere
+
+have_posts()    Fetches the information about posts in database (how many)
+the_post()      Fethes a single post from database
+the_permalink() Fetches the permalink of a single post
+the_title()     Fetches the title of a single post
+the_content()   Fetches the content of a single post
+the_excerpt()   Fetches the excerpt of a single post 
+
+wp_trim_words(get_the_content, 18)  Fetches defined amount of words of content
+
+the_author_posts_link()    Fetches the info about the author of the post
+the_time('[Date format]')  Fetches the date/time when post was published; argument defines the format >> see php date formatting: https://wordpress.org/support/article/formatting-date-and-time/ or https://www.php.net/manual/en/function.date.php
+get_the_category_list(', ')     Fetches the categories of the post; argument is text/space/markup that is displayed between categories 
+
+wp_footer()     Adds the black WordPress logged-in top bar (Include in the footer.php right before the closing </body>)
+
+get_theme_file_uri()    Creates the path to the theme folder; argument is the path within the theme folder
+site_url()      Automatically gives the site root url; argument is the path within the site 
+
+get_the_ID()    Gives the ID of the current page/post(page)
+
+wp_get_post_parent_id(get_the_ID())     (argument) Look up the ID of current page; (function) Look up the parent id of looked up current page ID
+
+get_the_title() Gets the title of specific page; Argument is the page ID         
+get_permalink() Gets the permalink of specific page; Argument is the page ID
+
+wp_list_pages(array()) Creates links to all pages in website; arguments as assosiative array
+
+get_pages()     Returns the pages
+
+wp_nav_menu()   Add a custom dynamic WP menu; argument is array('theme-location' => '[codeName]') >> Codename is defined in functions.php [themeName]_features function
+
+is_page('[slug]')   True or false; can be used as value in if-statements 
+
+paginate_links()    Add post pagination to page
