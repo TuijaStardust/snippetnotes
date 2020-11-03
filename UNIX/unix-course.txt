@@ -30,6 +30,10 @@ Working directory = The current directory
     -> You can use wildcards on the command line to work with multiple folders/files
 \n = Newline
 
+| = "pipe"; The pipe allows to take the output of a command, and use it as the input to another command
+    -> General syntax:
+        [program that produces output] | [program uses pipe output as input instead of file]
+    -> Can be used multiple times in one command
 
 Quick keys
 ==========
@@ -41,7 +45,7 @@ Default text files
 ==================
 ~/.bash_history = includes recently used commands (since opening the session)
 
-~/.bash_profile = list of Unix commands that are run every time we open terminal
+~/.bash_profile = list of Unix commands that are run every time we open shell/terminal
     -> In order to make changes to ~/.bash_profile take effect, run in the console:
         source ~/.bash_profile
 
@@ -79,6 +83,12 @@ less = program designed for viewing multi-page files
 head = prints first 10 lines of file; -n option followed by num. of lines to see
 tail = prints last 10 lines of file; -n option followed by num. of lines to see 
 
+diff = compare the difference of 2 files; differing lines are printed to console 
+    -> arg 1. & 2. path to file
+sdiff = compare the difference of 2 files Side By Side
+    -> arg 1. & 2. path to file
+
+
 Output redirection
 ------------------ 
 - stores text that would normally be printed to the command line into text file 
@@ -101,6 +111,44 @@ rm -r = remove directory
 Misc commands
 -------------
 cal = displays calendar in console
+sort [path\to\filename/command\output] | uniq -c = find out how many unique lines/expressions are in file/command output
+
+Makefile
+--------
+- Make is a tool for creating relationships between files and programs, so that files depend on other files can be automatically rebuilt
+- Makefiles are textfiles that contain a list of rules
+- Describes the relationships between different files and programs 
+    -> Installing programs
+    -> Creating documents automatically
+
+General form:
+
+    ''''
+    [target]: [dependencies... ]
+        [commands...]
+    ''''
+
+- Target = file to be built
+- Dependency = file(s) that the target depends on to be built
+- Commands = a list of bash commands that build the target
+    -> !!! Commands (under a target) must be indented with Tab ->|
+
+Special rules
+.............
+
+    ''''
+    all: [make-target-filename-1] [make-target-filename-2]
+    ''''
+-> By adding all targets you can run 'make' without adding any arguments in order to build all of the targets in the makefile
+
+''''
+    clean:
+        rm [make-target-filename-1]
+        rm [make-target-filename-2]
+    ''''
+-> Destroys the files created by makefile
+
+Learn more: http://makefiletutorial.com 
 
 Search within a file
 --------------------
@@ -153,6 +201,7 @@ Flags
 -v flag returns invert match by the regular expression
 -i flag ignores the case 
 -n display the line number of the matching result
+-o extracts the regular expression match from the matching line
 
 learn more: http://regexr.com
 
@@ -168,6 +217,17 @@ Flags
 
 -name - Search for a file/directory by name
     -> arg 1. The name of the folder/file
+
+Hash
+----
+Hashing programs generate a unique code based on the contents of a file 
+    -> provides ability to check the downloaded file matches the genuine one
+
+# Computing MD5 hash 
+md5 [filename].[txt]
+
+# Computing SHA-1 hash
+shasum [filename].[txt]
 
 Help desk
 ---------
