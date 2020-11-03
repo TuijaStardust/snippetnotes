@@ -1,18 +1,14 @@
-Configuration:
+# CONFIGURATION
 
 Hot Module Replacement (HMR) is a tool for reloading your application in the browser without the
 page refresh. You can activate it in create-react-app by adding the following configuration to your
 src/index.js file:
 
     '''
-    import React from 'react';
-    import ReactDOM from 'react-dom';
-    import './index.css';
-    import App from './App';
-    ReactDOM.render(
     <App />,
     document.getElementById('root')
     );
+
     if (module.hot) {
     module.hot.accept();
     }
@@ -22,6 +18,21 @@ src/index.js file:
     >> page refresh delays productivity
     >> you can keep the application state after the app reloads 
         >> you can debug from the exact point you’re working on.
+
+# ARROW FUNCTION
+
+# The parameter list for a function with no parameters should be written with a pair of parentheses.
+
+() => { ... }
+
+# Arrow functions with arguments:
+
+item => { ... }
+
+(item) => { ... }
+
+(item, key) => { ... }
+
 
 # ReactDOM.render()
 

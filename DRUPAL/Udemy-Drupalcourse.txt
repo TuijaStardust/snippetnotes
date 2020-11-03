@@ -1,0 +1,44 @@
+
+Random notes about setting up Drupal
+====================================
+
+Site e-mail address is a System address >> used as sender for system related messages (reset password etc.)
+ >> needs to have the same domain as the site domain > If not, it will end up into spambox
+
+!!! Origin domain and site email address domain need to match !!!
+
+Open the project in 2 different browsers
+    1. As logged in user/admin 
+    2. Anonymous user
+
+!!! Make sure your core code is up to date !!!
+
+USER 1
+------
+* Allmighty user in the site (can do anything, including harm)
+* Username should be something gengeral (not tied to you as individual) & Something unique (hard to quess)
+* Can't be deleted
+* For administrating the site, create another user
+
+HOMEPAGE
+--------
+* Articles will automatically display in the homepage 
+
+
+ERROR HANDLING
+--------------
+
+* Default searchpage URL: /search/node (One option to replace 404 error page)
+
+
+TRUSTED HOST SETTINGS (Removing the error notification)
+---------------------
+* Go to Settings.php
+* Copy "Trusted host configuration" example code:
+
+        $settings['trusted_host_patterns'] = [
+        '^www\.example\.com$',
+        ];
+
+* Paste to end of the file
+* Change the path to be the correct path for running the site 

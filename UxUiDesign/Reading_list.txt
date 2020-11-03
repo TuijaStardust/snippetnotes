@@ -1,0 +1,41 @@
+List of Books I've read while being on my journey of becoming an UI/UX professional. 
+
+Due to copyright reasons I will not pe publishing my personal studynotes based on these books.
+
+# 2020-20-18
+
+---
+SMASHING PROFESSIONAL WEB DESIGN
+- The Best of Smashing Magazine
+
+Published 2011 by John Wiley & Sons Ltd, UK
+
+ISBN 978-1-119-99275-2
+
+---
+WEB STYLE GUIDE (4th Edition)
+- Foundations od User Experience Design 
+
+Patrick J. Lynch, Sarah Horton
+
+Published 2016 by Yale University Press 
+
+ISBN 978-0-300-21165-8
+
+---
+
+
+
+****************************
+WEBSITES
+--------
+
+https://alistapart.com/
+
+"A List Apart explores the design, development, and meaning of web content, with a special focus on web standards and best practices."
+
+---
+
+https://boagworld.com/
+
+"Advice on user experience design,conversion optimisation and digital transformation from Paul Boag"
