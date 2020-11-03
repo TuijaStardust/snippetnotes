@@ -1,0 +1,45 @@
+## Determining paths
+
+- You should never use hard-coded paths in a plugin; 
+    the proper way to access files in plugins is essential for ensuring compatibility with all WP installations  
+- WP has a set of functions to determine the path to 'wp-content' and 'plugins' directories, as well as directories within plugins 
+
+# Local paths 
+   
+plugin_dir_path()
+
+    - extracts location relative to the plugins directory from its file name.
+    - __FILE__ constant returns the full local server path to plugin directory
+
+'''
+<?php echo plugin_dir_path( __FILE__ ); ?>
+'''
+
+- Referencing the local path to a file in a plugin subdirectory:
+    >> use plugin_dir_path() with the subdirectory files 
+
+'''
+<?php echo plugin_dir_path( __FILE__ ) . 'js/script.js'; ?>
+'''
+
+# URL paths 
+
+plugins_url() 
+
+    - Determines the full URL to any file in plugin directory 
+    - 2 parameters: 
+        - path relative to the plugins URL 
+        - Plugin file you want to be relative to >> __FILE__ constant 
+
+'''
+<?php echo '<img src="' .plugins_url( 'images/icon.png', __FILE__). '">'; ?>
+'''
+
+# Other functions to determine URLs in WP 
+
+admin_url()     - Admin URL 
+site_url()      - Site URL for the current site 
+home_url()      - Home URL for the current site 
+includes_url()  - Includes directory URL 
+content_url()   - Content directory URL 
+wp_upload_dir() - Returns an array with location information on the configured uploads directory  

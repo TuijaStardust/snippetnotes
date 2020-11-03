@@ -1,0 +1,47 @@
+## Activating and Deactivating functions
+
+- register_activation_hook() -function is executed when the plugin is activated in the WP plugins screen (!! except on automatic plugin update)
+    >> accepts 2 parameters:
+        -the path to the main plugin file
+        -the function to execute when the plugin is activated
+    >> useful function if you need to execute any actions when the plugin is activated
+
+'''
+<?php
+register_activation_hook( __FILE__, 'btrips_install');
+
+function btrips_install() {
+
+}
+?>
+'''
+
+- Verify that the version of WP the user is running is compatible with the plugin 
+- global variable $wp_version stores currently running version of WordPress
+
+'''
+<?php
+register_activation_hook( __FILE__, 'btrips_install');
+
+function btrips_install() {
+    global $wp_version;
+    
+    if ( version_compare( $wp-version, '4.1', '<')) {
+        
+        wp_die( 'This plugin requires WordPress versuin 4.1 or higher.');
+    }
+}
+'''
+
+- register_deactivation_hook()
+    >> Deactivating is not uninstalling -> Never include uninstall functionality in deactivation function
+
+'''
+<?php
+register_deactivation_hook( __FILE__, 'btrips_deactivate()' );
+
+function btrips_deactivate() {
+
+}
+?>
+'''

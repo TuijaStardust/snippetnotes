@@ -1,0 +1,10 @@
+## Folder structure:
+
+    plugin_name             //no spaces or special characters
+    |_ plugin_name.php      //primary plugin PHP file
+    |_ uninstall.php        //the uninstall file for plugin
+    |_ /js                  //folder for JavaScript
+    |_ /css                 //folder for style sheet files
+    |_ includes             //folder for additional PHP includes 
+    |_ /images              //folder for plugin images 
+    |_ /localization        //folder for plugin localization files 

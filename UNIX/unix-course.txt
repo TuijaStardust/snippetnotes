@@ -1,0 +1,212 @@
+The Unix Workbench
+==================
+- John Hopkins University -
+
+A course in Coursera.org
+
+Study notes by Tuija Stardust / 2020-11-02
+------------------------------------------
+
+Structure of commands:
+[command] [-options] [arguments]
+
+- Options tweak the behaviour of the command
+- Arguments can be file names, raw data or other options the command requires
+
+There is no undo button in Unix. 
+Make sure to take extra care when executing commands that can modify or delete a file.
+A typo in the command can be pontentially devastating.
+
+Glossary
+========
+
+/ = Root Directory contains all other directories
+~ = Home Directory contains personal files
+
+Path = The sequence of directories from root to the current directory
+Working directory = The current directory
+
+* = Wildcard; Character that represents other characters - zero or more of ANY character
+    -> You can use wildcards on the command line to work with multiple folders/files
+\n = Newline
+
+
+Quick keys
+==========
+
+Up and Down - Scroll through command history
+Tab - Tab completion speeds up typing paths and commands
+
+Default text files
+==================
+~/.bash_history = includes recently used commands (since opening the session)
+
+~/.bash_profile = list of Unix commands that are run every time we open terminal
+    -> In order to make changes to ~/.bash_profile take effect, run in the console:
+        source ~/.bash_profile
+
+
+Commands
+========
+
+pwd = print working directory
+cd = change directory (by default changes to home directory); Add relative/absolute path as argument
+cd .. = Changes to directory above current working directory
+
+ls = list files and folders in working directory
+ls -l = long listing of files
+
+mkdir = make directory
+touch = create file 
+mv = move / rename files and folders
+    To move:
+    -> arg 1. path to folder/file that is moved
+    -> arg 2. path to destination 
+    To rename:
+    -> arg 1. path to folder/file that is renamed
+    -> arg 2. path with the new name of file/folder
+cp = copy (file/folder from one destination to another)
+    -> -r option = recursive; unerlying directory structure remains intact
+    -> arg 1. copied file/folder
+    -> arg 2. path to destination folder
+
+wc = word count displays number of lines, number of words and number of characters in the file
+cat = concatenate files; print the file content to console; Combines every text file that is provided as an argument
+less = program designed for viewing multi-page files 
+    -> space => next page 
+    -> b => previous page 
+    -> q => quit 
+head = prints first 10 lines of file; -n option followed by num. of lines to see
+tail = prints last 10 lines of file; -n option followed by num. of lines to see 
+
+Output redirection
+------------------ 
+- stores text that would normally be printed to the command line into text file 
+    -> type > sign at the end of command followed by the name of the new file: 
+    echo "[text]" > [new_file].[txt]
+    !!! If the file already exists, this command OVERWRITES the file
+- append text to the end of a file using: 
+    echo "[text]" >> [filename].[txt]
+
+Removing files
+--------------
+- Removes files permanently! ALWAYS double check the delete command to make sure it's correct
+- Recommended: Instead of deleting files/folders, move them to trash
+    -> Mac trash: ~/.Trash
+    -> Linux trash: ~/.local/share/Trash
+
+rm = remove file
+rm -r = remove directory
+
+Misc commands
+-------------
+cal = displays calendar in console
+
+Search within a file
+--------------------
+
+Regular expressions = Strings that define patterns in other strings.
+    -> Use to search for a sub-string within a larger string
+
+grep 
+    -> arg 1. "[regular expression]"
+    -> arg 2. text file(s) to search 
+egrep 
+    -> arg 1. "[extended regular expression]"
+    -> arg 2. text file(s) to search 
+
+
+Metacharacters
+..............
+
+. = Any character
+\w = all "word" characters
+\d = all number characters
+\s = all whitespace characters
+
+\W = all non-words
+\D = all non-digits
+\S = all non-whitespaces 
+
+Quantifier allows specifying the number of times a particular regular expression should appear in a string
++ = One or more occurences of the preceeding expression 
+* = Zero or more occurence of the preceeding expression
+? = Zero or one occurence of the preceeding expression
+{} = Specify an exact number of occurences of an expression
+{1,3} = Between 1 & 3 or previous
+{3,} = More than 3 or previous 
+() = Capturing groups; in order to search for multiple occurences of a string
+[] = Specific character sets
+[^] = Compliment (negation) of a set
+[-] = range of characters (l-o = "l to o"); !! Case sensitive
+^ = Start of line ("^M" -> Search for lines beginning with M)
+$ = End of line
+\n = Newline
+| = Either or
+
+Escaping metacharacter functionality:
+\ before the metacharacter sign 
+
+Flags
+.....
+
+-v flag returns invert match by the regular expression
+-i flag ignores the case 
+-n display the line number of the matching result
+
+learn more: http://regexr.com
+
+Search for a directory/file location
+-------------------------------
+
+find
+    -> arg 1. the starting directory (-> searches directory and all directories under it)
+    -> flag to describe the used method
+
+Flags
+.....
+
+-name - Search for a file/directory by name
+    -> arg 1. The name of the folder/file
+
+Help desk
+---------
+man = manual (=documentation); arg 1. [command] you want to know more about
+    -> opens a listing of available options to use with the command
+    -> type / to start a search within the manual
+    -> type n to move to the next occurence of the search result
+    -> type shift + n to move to the previous occurence of the search result
+    -> type q to exit manual
+
+apropos = search all the available commands
+    -> arg 1. word associated with command ('editor' etc.)
+
+
+Command history
+---------------
+- Recent commands are written to the ~/.bash_history file
+    -> regular text file that can be searched with grep
+
+history = lists commands used since opening current session in terminal
+
+
+
+Nano - text editor
+==================
+# Start editing
+nano [filename].[txt]
+
+# ^ = ctrl
+
+# Save Changes 
+ctrl + O 
+
+# Exit Nano 
+ctrl + X 
+
+# Creating new file with Nano
+nano [new_file].[txt]
+# -> Edit file
+# -> Save changes
+# -> Exit 
+

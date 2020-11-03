@@ -1,0 +1,74 @@
+## Internationalization ('i18n')
+
+- Process of makin plugin/theme ready for translation: 
+    >> marking strings that should be translated: __() ; 2 parameters
+        - the string that is to be translated
+        - the text domain (= a unique identifier, which is used to distinguish between all loaded translations)
+
+'''
+<?php $route = __( 'Biking route', 'btrips_plugin' ); ?> 
+'''
+
+- If code should echo the translatable string to browser:
+    >> _e() -function
+        - works same as __() but the value is echoed to browser
+
+- Translating error message:
+    ' Error Code 6980: Email is a required field '
+
+    - printf() -function outputs the formatted string
+    - two variables are passed to printf() and inserted into the string in the designated spots 
+        >> it is possible to move the error number and field values to make sense in target language 
+
+'''
+<?php
+$error_number = 6980;
+$error_field = "Email";
+printf( __( 'Error Code %1$d: %2$s is a required field', 'btrips-plugin'),
+$error_number, $error_field);
+?>
+'''
+
+- Plurals need special consideration 
+    >> _n() ; accepts 4 parameters
+        - the singular version
+        - the plural version 
+        - the actual number 
+        - domain text for plugin 
+    >> the _n() -function uses the number parameter ($count) to determine wheter the singular or plural string should be returned 
+
+'''
+<?php
+$count = 42;
+printf( _n( 'You have %d message', 'You have %d new messages', $count, 'btrips-plugin'));
+?>
+'''
+
+- Add comments to translatable strings;
+    >> _x() ; accepts 3 parameters
+        - text string to translate 
+        - the context information for the translator (custom comment messages)
+        - text domain
+    
+'''
+<?php
+echo _x( 'Editor', 'user role', 'btrips-plugin');
+echo _x( 'Editor', 'rich-text editor', 'btrips-plugin');
+?> 
+'''
+
+- Load the localization file to do the translation 
+    >> load_plugin_textdomain() ;
+        - domain text name (used previously to identify translatable strings)
+        - (DEPRECATED) path relative to ABSPATH variable 
+        - Path to translation files from /plugins directory
+            >> use plugin_basename() & dirname() -functions to retrieve the path to localization folder
+ 
+'''
+<?php
+add_action( 'init', 'btrips_init' );
+function btrips_init() {
+    load_plugin_textdomain( 'btrips-plugin', false, plugin_basename ( dirname ( __FILE__) . '/localization') );
+}
+?>
+'''
