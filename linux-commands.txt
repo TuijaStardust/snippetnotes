@@ -43,3 +43,15 @@ sudo service mysql restart
 # ACCESS PATH TO WINDOWS SYSTEM FILES
 # *You can modify windows files from Debian but not Debian files from Windows* 
 /mnt/c/users/[username]/desktop 
+
+----
+
+# Setting up alias
+# Open file ~/.bash_aliases (compiled by .bashrc)
+sudo nano ~/.bash_aliases
+
+# Add alias
+alias [aliasname]="[command to run]"
+
+# Refresh the bash window
+source ~/.bashrc
