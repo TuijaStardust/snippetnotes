@@ -1,6 +1,6 @@
 # Written by Tuija P.
 
-# Instructions mainly from the "Drupal summercamp" by Roni Kantis & Petri Bezemer @Business College Helsinki
+# Instructions mainly from the "Drupal summercamp" by Roni Kantis & Petri Bezemer @Business College Helsinki, June 2019
 
 (Tutorial: https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners )
 
@@ -14,6 +14,10 @@ git clone [paste here the address from github]
 
 # ADDING NEW FILE:
 git add [filename or . for all changes]
+
+# UNDO GIT ADD  
+git reset
+git reset [filename]
 
 # COMMITING CHANGES
 git commit -am"some message"
@@ -35,6 +39,9 @@ git pull origin [branch name]
 
 # CHECKING BRANCH STATUS
 git status
+
+# Remove dead branches remotely
+git push origin --delete [branch_name]
 
 ----
 
@@ -75,3 +82,9 @@ ssh -T git@github.com
 # If it says
 >> Hi [user]! You've successfully authenticated, but GitHub does not provide shell access.>>
 # all is good
+
+----
+
+# Listing of Git config settings 
+git config --list 
+
