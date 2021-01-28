@@ -1,0 +1,21 @@
+CLI for WordPress
+=================
+
+21-01-26 / Tuija Stardust
+-------------------------
+
+Listing of wp CLI commands
+https://developer.wordpress.org/cli/commands/
+
+# Info about wp-cli (locations of files etc.)
+wp --info
+wp cli
+
+#Update
+wp cli update
+
+Commands
+--------
+
+# Install & activate plugin
+wp plugin install --activate

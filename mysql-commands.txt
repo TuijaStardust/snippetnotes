@@ -1,6 +1,7 @@
 # - Building mySQL databases using command line -
 
 # Written by Tuija P. / 2019-09-12
+# Edits: 2021-01-28
 
 # MariaDB Documentation: https://mariadb.com
 
@@ -132,12 +133,15 @@ CREATE USER '[newuser]'@'localhost' IDENTIFIED BY '[password]';
 # About granting privileges: https://mariadb.com/kb/en/library/grant/
 # Use the SHOW GRANTS statement to determine what privileges an account has.
 
+# GRANTING PRIVILEGES 
+GRANT ALL ON [database_name].[table_name] to '[user_name]'@'[host_name]';
+
 # GRANT ALL PRIVILEGES TO USE DATABASE
 GRANT ALL PRIVILEGES ON * . * TO '[newuser]'@'localhost';
 
 # LIST USERS AND PASSWORDS 
 SELECT user, password FROM mysql.user
 
+# List granted privileges of specific user 
+SHOW GRANTS FOR '[user_name]'@'localhost';
 
-
- 
